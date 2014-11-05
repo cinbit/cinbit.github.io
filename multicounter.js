@@ -17,8 +17,8 @@ fc[8] = {pos:"p8",pri:8,tim:50*60,url:"http://coindigger.biz/?r=e7db5b428f"};
 fc[9] = {pos:"p9",pri:9,tim:60*60,url:"http://www.coin-giveaway.info/?ref=2fe7745899f0"};
 */
 //ArrSort(fc);
-DivClick(fc[0]);
-DivClick(fc[1]);
+DivClick(fc[0].pos,fc[0].tim,fc[0].url);
+DivClick(fc[1].pos,fc[1].tim,fc[1].url);
 /*DivClick(fc[2]);
 DivClick(fc[3]);
 DivClick(fc[4]);
@@ -138,7 +138,7 @@ function ArrSort(Arr) {
 		}
 	}
 }
-function DivClick(obj) {
+/*function DivClick(obj) {
 	document.getElementById(obj.pos).onclick = function () {
 		SetCookie(obj.pos,obj.tim);
 		var vra=document.createElement("a");
@@ -146,6 +146,16 @@ function DivClick(obj) {
 		vra.href=obj.url;
 		document.getElementById(obj.pos).appendChild(vra);
 		vra.click();
+	}
+}*/
+function DivClick(id,time,url) {
+	document.getElementById(id).onclick = function () {
+		SetCookie(id,time);
+		var vra=document.createElement("a"); 
+		vra.target="_blank"; 
+		vra.href=url; 
+		document.body.appendChild(vra); 
+		vra.click(); 		
 	}
 }
 function OpenURL(url,target) {
