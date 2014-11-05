@@ -1,6 +1,252 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
+<head>
+    <title>Build Menu with Tooltip</title>
+    <link rel="stylesheet" type="text/css" href="tabcontent.css">	
+	<link rel="stylesheet" type="text/css" href="style205.css">
+    <script type="text/javascript" src="tabcontent.js"></script>
+</head>
 <body>
-<h1>Hello Cinbit</h1>
+
+<div id="header">
+<table border="0" cellpadding="0" cellspacing="0" width="800">
+<tr>
+	<td width="33%" align="left">
+		<div class="mytitle" onclick="OpenURL(homeURL,'_self')">
+		<table border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2"><div class="title_row">誉通天下</div></td>
+		</tr>
+		<tr>
+			<td rowspan="2"><div class="pic"><img src="credit.jpg"></div></td>
+			<td><div class="desc">比特币科技开创第二代互联网应用，从了解比特币开始！</div></td>
+		</tr>
+		<tr>
+			<td><div class="help"><a href="http://www.sohu.com";><img src="help.png">帮助</a></div></td>
+		</tr>
+		</table>
+		</div>
+	</td>
+	<td width="34%" align="center">
+		<div class="mytitle" onclick="OpenURL(walletURL,'_blank')">
+		<table border="0" cellpadding="0" cellspacing="0">
+		<tbody>
+		<tr>
+			<td colspan="2"><div class="title_row">BTC钱包</div></td>
+		</tr>
+		<tr>
+			<td rowspan="2"><div class="pic"><img src="kipcoin.jpg"></div></td>
+			<td><div class="desc">每天获利的比特币钱包，白手起家新手的最佳选择！</div></td>
+		</tr>
+		<tr>
+			<td><div class="info"><a href="http://www.sohu.com";><img src="info.png">指南</a></div></td>
+		</tr>
+		</tbody>
+		</table>
+		</div>
+	</td>
+	<td width="33%" align="right">
+		<div class="mytitle" onclick="OpenURL(exchangeURL,'_blank')">
+		<table border="0" cellpadding="0" cellspacing="0">
+		<tbody>
+		<tr>
+			<td colspan="2"><div class="title_row">BTC交易</div></td>
+		</tr>
+		<tr>
+			<td rowspan="2"><div class="pic"><img src="okcoin.jpg"></div></td>
+			<td><div class="desc">海内海外交易平台独立运营，千万美元融资信誉保障！</div></td>
+		</tr>
+		<tr>
+			<td><div class="info"><a href="http://www.sohu.com";><img src="info.png">指南</a></div></td>
+		</tr>
+		</tbody>
+		</table>
+		</div>
+	</td>
+</tr>
+<tr>
+	<td colspan="3"><div id="price"><span id="btcprice"></span></div></td>
+</tr>
+</table>
+</div>
+<div id="container">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="800">
+<tr>
+	<td>
+		<div style="width: 800; margin: 0 auto; height:320; padding-left:0px; padding-right:0px; padding-top:0px; padding-bottom:0px">
+			<ul class="tabs" data-persist="true">
+				<li class=""><a href="#view1">免费比特币</a></li>
+				<li class=""><a href="#view2">信誉监督站</a></li>
+				<li class=""><a href="#view3">休闲小游戏</a></li>
+			</ul>
+			<div class="tabcontents">
+				<div id="view1" style="display: none; ">
+					<table border="0" cellSpacing="4" cellPadding="0" width="100%" align="center">
+					<tbody>
+					<tr>
+						<td width="20%" align="center">
+							<div class="faucet" id="p0">
+								<div class="domain" id="p0tt" onclick="OpenURL(fc[0].url,'_blank');"></div>
+								<div class="up" onclick="alert('aa')"><img class="img" src="up.gif" /></div>
+								<div class="dw" onclick="alert('aa')"><img class="img" src="dw.gif" /></div>
+								<div class="timer" id="p0tm"></div>
+								<div class="hp" onclick="alert('aa')"><img class="img" src="hp.gif" /></div>
+								<div class="rs" onclick="alert('aa')"><img class="img" src="rs.gif" /></div>
+							</div>
+						</td>
+						<td width="20%" align="center">
+							<div class="faucet" id="p1">
+								<div class="domain" id="p1tt">aaaa</div>
+								<div class="up" onclick="alert('aa')"><img class="img" src="up.gif" /></div>
+								<div class="dw" onclick="alert('aa')"><img class="img" src="dw.gif" /></div>
+								<div class="timer" id="p1tm"></div>
+								<div class="hp" onclick="alert('aa')"><img class="img" src="hp.gif" /></div>
+								<div class="rs" onclick="alert('aa')"><img class="img" src="rs.gif" /></div>
+							</div>
+						</td>
+						<td width="20%" align="center"><div class="faucet" id="p2"></div>
+						</td>
+						<td width="20%" align="center"><div class="faucet" id="p3"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p4"></div></td>
+					</tr>
+					<tr>
+						<td width="20%" align="center"><div class="faucet" id="p5"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p6"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p7"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p8"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p9"></div></td>
+					</tr>
+					<tr>
+						<td width="20%" align="center"><div class="faucet" id="p10"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p11"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p12"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p13"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p14"></div></td>
+					</tr>
+					<tr>
+						<td width="20%" align="center"><div class="faucet" id="p15"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p16"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p17"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p18"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p19"></div></td>
+					</tr>
+					<tr>
+						<td width="20%" align="center"><div class="faucet" id="p20"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p21"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p22"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p23"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p24"></div></td>
+					</tr>
+					<tr>
+						<td width="20%" align="center"><div class="faucet" id="p25"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p26"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p27"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p28"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p29"></div></td>
+					</tr>
+					<tr>
+						<td width="20%" align="center"><div class="faucet" id="p30"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p31"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p32"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p33"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p34"></div></td>
+					</tr>
+					<tr>
+						<td width="20%" align="center"><div class="faucet" id="p35"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p36"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p37"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p38"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p39"></div></td>
+					</tr>
+					<tr>
+						<td width="20%" align="center"><div class="faucet" id="p40"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p41"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p42"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p43"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p44"></div></td>
+					</tr>
+					<tr>
+						<td width="20%" align="center"><div class="faucet" id="p45"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p46"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p47"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p48"></div></td>
+						<td width="20%" align="center"><div class="faucet" id="p49"></div></td>
+					</tr>
+					</tbody>
+					</table>
+				</div>
+				<div id="view2" style="display: none; ">table2</div>
+				<div id="view3" style="display: none; ">table3</div>
+			</div>
+		</div>
+	</td>
+</tr>
+</table>
+
+</div>
+<div id="footer">
+	<div class="friendlinks">
+		<div class="flcap">友情链接</div>
+		<div class="flcontent"> 
+			<a href="http://www.btc123.com/" target="_blank">Btc123导航</a>
+			<a href="http://www.btctrade.com/" target="_blank">比特币交易网</a>
+			<a href="http://bter.com/" target="_blank">比特儿</a>
+			<a href="http://pow88.com/" target="_blank">算力吧</a>
+			<a href="http://www.yibite.com/" target="_blank">壹比特</a>
+			<a href="http://knewcoin.com/" target="_blank">KnewCoin</a>
+			<a href="http://www.boluojishi.com/" target="_blank">菠萝集市</a>
+			<a href="http://zhibite.com/" target="_blank">智比特</a>
+			<a href="http://www.btc798.com/" target="_blank">比特币之家</a>
+			<a href="http://www.eternalspring.org/" target="_blank">温暖四季</a>
+			<a href="http://www.bitmain.cn/default.php" target="_blank">蚂蚁矿机</a>
+			<a href="http://cointelegraph.com" target="_blank">Cointelegraph</a>
+			<a href="https://btct.com/index.html" target="_blank">比特汇</a>
+			<a href="https://www.chbtc.com/" target="_blank">中国比特币</a>
+			<a href="http://www.btc38.com/" target="_blank">比特时代</a>
+			<a href="https://vip.btcchina.com/" target="_blank">比特币中国</a>
+			<a href="https://yunbi.com/" target="_blank">云币网</a>
+			<a href="https://www.coinsave.com/" target="_blank">币存</a>
+			<a href="http://www.btc114.com/" target="_blank">BTC114</a>
+			<a href="http://www.bimin.cn/" target="_blank">币民中国</a>
+			<a href="http://www.sosobtc.com/" target="_blank">搜搜比特币</a>
+			<a href="http://www.bitecoin.com/" target="_blank">比特币中文网</a>
+			<a href="http://www.bitcoin86.com/" target="_blank">比特币资讯网</a>
+			<a href="http://www.topcoin.cn" target="_blank">Topcoin</a>
+			<a href="http://www.btc114.com" target="_blank">比特币导航</a>
+			<a href="http://www.wanbizu.com/" target="_blank">玩币族</a>
+			<a href="http://www.bitsea.cn" target="_blank">BitSea矿机商城</a>
+			<a href="http://www.336hyw.com/" target="_blank">山寨币信息大全</a>
+			<a href="http://www.bitstones.com/" target="_blank">比特四通</a>
+			<a href="http://www.01btc.com" target="_blank">好币网</a>
+			<a href="http://www.cnbite.com " target="_blank">比特矿业</a>
+			<a href="http://www.litecoin100.com/" target="_blank">莱特币之家</a>
+			<a href="http://mydoge.org/" target="_blank">狗狗币资讯</a>
+			<a href="https://www.bitstamp.net/" target="_blank">Bitstamp</a>
+		</div>
+	</div>
+	<div class="ft">
+		<img id="donate" src="donate.gif" alt="捐助"/>
+		<span id="donateaddr">比特币地址：<input type="text" id="daddr" size="40" title="Ctrl+C 复制地址" value="19nNkBMzMqPdTxA8cLKAo5jJo13pW9mCAs" readonly onmouseover="this.select();" />&nbsp&nbsp扫描二维码：</span><span id="qr"></span>
+	</div>
+	<div class="ft">
+		<span class="reginfo">©2006-2014 cinbit.com</span>
+		<img id="cin" src="cin.jpg" alt="誉通天下"/>
+		<span class="reginfo">誉通天下：致力于信誉互联实践探索！</span>
+		<span id="tj">
+			<script type="text/javascript">
+				var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+				document.write(unescape("%3Cspan id='cnzz_stat_icon_1253472009'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s6.cnzz.com/z_stat.php%3Fid%3D1253472009%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+			</script>
+		</span>
+		<span class="reginfo" id="liame"></span>
+	</div>
+</div>
+
+
+
+    <script type="text/javascript" src="multicounter.js"></script>
+    <script type="text/javascript" src="jqm.js"></script>
+	<script type="text/javascript" src="qrcode.js"></script>
+	
 </body>
 </html>
