@@ -174,6 +174,16 @@ function onUp(id) {
 		tmp=fc[i].url;
 		fc[i].url=fc[i-1].url;
 		fc[i-1].url=tmp;
+		var d0=0;
+		if ( GetCookie(fc[i].pos) != null) {
+			d0=GetCookie(fc[i].pos);
+		}
+		var d1=0;
+		if ( GetCookie(fc[i-1].pos) != null) {
+			d1=GetCookie(fc[i-1].pos);
+		}
+		SetCookie(fc[i-1].pos,d0);
+		SetCookie(fc[i].pos,d1);
 	}
 }
 function onDw(id) {
@@ -188,6 +198,16 @@ function onDw(id) {
 		tmp=fc[i].url;
 		fc[i].url=fc[i+1].url;
 		fc[i+1].url=tmp;
+		var d0=0;
+		if ( GetCookie(fc[i].pos) != null) {
+			d0=GetCookie(fc[i].pos);
+		}
+		var d1=0;
+		if ( GetCookie(fc[i+1].pos) != null) {
+			d1=GetCookie(fc[i+1].pos);
+		}
+		SetCookie(fc[i+1].pos,d0);
+		SetCookie(fc[i].pos,d1);		
 	}
 }
 function OpenURL(url,target) {
