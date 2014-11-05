@@ -165,15 +165,6 @@ function onRs(id) {
 function onUp(id) {
 	var i=parseInt(id.replace(/^p|up$/ig,""));
 	if(i>0){
-		var tmp=fc[i].pri;
-		fc[i].pri=fc[i-1].pri;
-		fc[i-1].pri=tmp;
-		tmp=fc[i].tim;
-		fc[i].tim=fc[i-1].tim;
-		fc[i-1].tim=tmp;
-		tmp=fc[i].url;
-		fc[i].url=fc[i-1].url;
-		fc[i-1].url=tmp;
 		var d0=0;
 		if ( GetCookie(fc[i].pos) != null) {
 			d0=GetCookie(fc[i].pos);
@@ -184,20 +175,20 @@ function onUp(id) {
 		}
 		SetCookie(fc[i-1].pos,d0);
 		SetCookie(fc[i].pos,d1);
+		var tmp=fc[i].pri;
+		fc[i].pri=fc[i-1].pri;
+		fc[i-1].pri=tmp;
+		tmp=fc[i].tim;
+		fc[i].tim=fc[i-1].tim;
+		fc[i-1].tim=tmp;
+		tmp=fc[i].url;
+		fc[i].url=fc[i-1].url;
+		fc[i-1].url=tmp;
 	}
 }
 function onDw(id) {
 	var i=parseInt(id.replace(/^p|dw$/ig,""));
 	if(i<fc.length){
-		var tmp=fc[i].pri;
-		fc[i].pri=fc[i+1].pri;
-		fc[i+1].pri=tmp;
-		tmp=fc[i].tim;
-		fc[i].tim=fc[i+1].tim;
-		fc[i+1].tim=tmp;
-		tmp=fc[i].url;
-		fc[i].url=fc[i+1].url;
-		fc[i+1].url=tmp;
 		var d0=0;
 		if ( GetCookie(fc[i].pos) != null) {
 			d0=GetCookie(fc[i].pos);
@@ -208,6 +199,15 @@ function onDw(id) {
 		}
 		SetCookie(fc[i+1].pos,d0);
 		SetCookie(fc[i].pos,d1);		
+		var tmp=fc[i].pri;
+		fc[i].pri=fc[i+1].pri;
+		fc[i+1].pri=tmp;
+		tmp=fc[i].tim;
+		fc[i].tim=fc[i+1].tim;
+		fc[i+1].tim=tmp;
+		tmp=fc[i].url;
+		fc[i].url=fc[i+1].url;
+		fc[i+1].url=tmp;
 	}
 }
 function OpenURL(url,target) {
