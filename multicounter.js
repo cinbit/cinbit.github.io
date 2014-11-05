@@ -133,7 +133,7 @@ function ArrSort(Arr) {
 				Arr[j].tim=tmp;
 				tmp=Arr[i].url;
 				Arr[i].url=Arr[j].url;
-				Arr[j].url=tmp;				
+				Arr[j].url=tmp;
 			}
 		}
 	}
@@ -156,6 +156,38 @@ function DivClick(id,time,url) {
 		vra.href=url; 
 		document.body.appendChild(vra); 
 		vra.click(); 		
+	}
+}
+function onRs(id) {
+	var i=parseInt(id.replace(/^p|rs$/ig,""));
+	SetCookie(fc[i].pos,fc[i].tim);
+}
+function onUp(id) {
+	var i=parseInt(id.replace(/^p|up$/ig,""));
+	if(i>0){
+		var tmp=fc[i].pri;
+		fc[i].pri=fc[i-1].pri;
+		fc[i-1].pri=tmp;
+		tmp=fc[i].tim;
+		fc[i].tim=fc[i-1].tim;
+		fc[i-1].tim=tmp;
+		tmp=fc[i].url;
+		fc[i].url=fc[i-1].url;
+		fc[i-1].url=tmp;
+	}
+}
+function onDw(id) {
+	var i=parseInt(id.replace(/^p|dw$/ig,""));
+	if(i<fc.length){
+		var tmp=fc[i].pri;
+		fc[i].pri=fc[i+1].pri;
+		fc[i+1].pri=tmp;
+		tmp=fc[i].tim;
+		fc[i].tim=fc[i+1].tim;
+		fc[i+1].tim=tmp;
+		tmp=fc[i].url;
+		fc[i].url=fc[i+1].url;
+		fc[i+1].url=tmp;
 	}
 }
 function OpenURL(url,target) {
