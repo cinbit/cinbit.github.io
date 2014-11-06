@@ -316,6 +316,12 @@ div.flcontent a:hover
 	cursor:pointer;
 }
 
+.tt:hover
+{
+	font-weight:700;
+	color:blue;
+}
+
 .up
 {
 	position:absolute;
