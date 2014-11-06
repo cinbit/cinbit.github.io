@@ -17,8 +17,8 @@ fc[8] = {pos:"p8",pri:8,tim:50*60,url:"http://coindigger.biz/?r=e7db5b428f"};
 fc[9] = {pos:"p9",pri:9,tim:60*60,url:"http://www.coin-giveaway.info/?ref=2fe7745899f0"};
 */
 //ArrSort(fc);
-DivClick(fc[0].pos,fc[0].tim,fc[0].url);
-DivClick(fc[1].pos,fc[1].tim,fc[1].url);
+//DivClick(fc[0].pos,fc[0].tim,fc[0].url);
+//DivClick(fc[1].pos,fc[1].tim,fc[1].url);
 /*DivClick(fc[2]);
 DivClick(fc[3]);
 DivClick(fc[4]);
@@ -157,6 +157,15 @@ function DivClick(id,time,url) {
 		document.body.appendChild(vra); 
 		vra.click(); 		
 	}
+}
+function onTt(id) {
+	var i=parseInt(id.replace(/^p|tt$/ig,""));
+	SetCookie(fc[i].pos,fc[i].tim);
+	var vra=document.createElement("a"); 
+	vra.target="_blank"; 
+	vra.href=fc[i].url; 
+	document.getElementById(id).appendChild(vra); 
+	vra.click(); 	
 }
 function onRs(id) {
 	var i=parseInt(id.replace(/^p|rs$/ig,""));
