@@ -348,7 +348,7 @@ div.flcontent a:hover
 	bottom:3px;
 //	border:1px solid #bbb;
 	font:14px/18px "\5B8B\4F53",Arial, Helvetica, sans-serif;
-	cursor:wait;
+	cursor:default;
 }
 
 .hp
