@@ -78,7 +78,7 @@ function ShowTime(secTime) {
 	}	
 	timeID = window.setTimeout("DownCount()",1000)
 }*/
-/*function DownCount(){
+function DownCount(){
 	window.clearTimeout(timeID);
 	for ( var i=0;i<fc.length;i++) {
 		document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url);
@@ -107,8 +107,8 @@ function ShowTime(secTime) {
 		}
 	}	
 	timeID = window.setTimeout("DownCount()",1000)
-}*/
-function DownCount(){
+}
+/*function DownCount(){
 	window.clearTimeout(timeID);
 	for ( var i=0;i<fc.length;i++) {
 		document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url);
@@ -137,7 +137,7 @@ function DownCount(){
 		}
 	}	
 	timeID = window.setTimeout("DownCount()",1000)
-}
+}*/
 /*function ArrSort(fixArr,keyArr,Arr) {
 	if((fixArr.length == keyArr.length) && (fixArr.length == Arr.length)) {
 		for(var i=0;i<fixArr.length;i++){
