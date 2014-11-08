@@ -115,9 +115,9 @@ function DownCount(){
 		if(enCookie){
 			if ( GetCookie(fc[i].pos) != null) {
 				fc[i].now=GetCookie(fc[i].pos);
-				var xtime=GetCookie(fc[i].pos+"x")+1;
+				var xtime=GetCookie(fc[i].pos+"x");
 				var exp=new Date();
-				fc[i].now=fc[i].now-parseInt((exp.getTime()+fc[i].now*1000-xtime*1000-Date.UTC(2014,9,25))/1000);
+				fc[i].now=fc[i].now-parseInt((exp.getTime()+(fc[i].now-1)*1000-xtime*1000-Date.UTC(2014,9,25))/1000);
 				document.getElementById(fc[i].pos+"tm").innerHTML = ShowTime(fc[i].now);
 				fc[i].now=fc[i].now-1;
 				SetCookie(fc[i].pos,fc[i].now);
