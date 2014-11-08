@@ -4,40 +4,23 @@
 *  @date   2014-08-31
 *  @email  btcinvestor@sina.com
 */
-var fc = new Array();
-fc[0] = {pos:"p0",pri:1,tim:60*60,url:"https://www.kipcoin.com/signup/12499"};
-fc[1] = {pos:"p1",pri:0,tim:5*60,url:"http://moonbit.co.in/?ref=b8ebe1f083e3"};
-/*fc[2] = {pos:"p2",pri:2,tim:60*60,url:"http://freebitco.in/?r=543770"};
-fc[3] = {pos:"p3",pri:3,tim:60*60,url:"http://faucet.bitcoinzebra.com/?ref=f69dcf34fe09"};
-fc[4] = {pos:"p4",pri:4,tim:15*60,url:"http://bitcoinker.com/faucet?ref=846b68927dc3"};
-fc[5] = {pos:"p5",pri:5,tim:60*60,url:"http://www.pinktussy.com/?r=investor"};
-fc[6] = {pos:"p6",pri:6,tim:2*60*60,url:"http://yourclicks.info/?r=investor"};
-fc[7] = {pos:"p7",pri:7,tim:60*60,url:"http://www.flyingfaucet.com/?ref=4035"};
-fc[8] = {pos:"p8",pri:8,tim:50*60,url:"http://coindigger.biz/?r=e7db5b428f"};
-fc[9] = {pos:"p9",pri:9,tim:60*60,url:"http://www.coin-giveaway.info/?ref=2fe7745899f0"};
-*/
-//ArrSort(fc);
-//DivClick(fc[0].pos,fc[0].tim,fc[0].url);
-//DivClick(fc[1].pos,fc[1].tim,fc[1].url);
-/*DivClick(fc[2]);
-DivClick(fc[3]);
-DivClick(fc[4]);
-DivClick(fc[5]);
-DivClick(fc[6]);
-DivClick(fc[7]);
-DivClick(fc[8]);
-DivClick(fc[9]);*/
-
-var homeURL		= "http://www.cinbit.com";
-var walletURL	= "https://www.kipcoin.com/signup.php?r=12499";
-var exchangeURL	= "https://www.okcoin.com/?invid=2001550";
+var enCookie=ChkCookie();
+alert(enCookie);
 var timeID 	= window.setTimeout("DownCount()",1000);
 function SetCookie(name,secTime) {
-    var exp  = new Date();
+    var exp = new Date();
     exp.setTime(exp.getTime() + secTime*1000);
 	document.cookie = name + "="+ escape(secTime) + ";expires=" + exp.toUTCString() + "; path=/;";
 	document.cookie = name + "x="+ escape(parseInt((exp.getTime()-Date.UTC(2014,9,25))/1000)) + ";expires=" + exp.toUTCString() + "; path=/;";
 }
+function AddCookie(name,value) {
+	document.cookie = name + "=" + escape(value) + "; path=/;";
+} 
+function DelCookie(name){
+	var exp = new Date(); 
+	exp.setTime(exp.getTime() - 10000);
+	document.cookie= name + "="+""+";expires="+exp.toUTCString();
+} 
 function GetCookie(name) {
     var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
 	if (arr != null) {
@@ -45,6 +28,16 @@ function GetCookie(name) {
 	}
 	else {
 		return null;
+	}
+}
+function ChkCookie(){
+	AddCookie("test","ok");
+	if(GetCookie("test")=="ok"){
+		DelCookie("test");
+		return true;
+	}
+	else{
+		return false;
 	}
 }
 function forNum(num) {
@@ -85,22 +78,61 @@ function ShowTime(secTime) {
 	}	
 	timeID = window.setTimeout("DownCount()",1000)
 }*/
+/*function DownCount(){
+	window.clearTimeout(timeID);
+	for ( var i=0;i<fc.length;i++) {
+		document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url);
+		if(enCookie){
+			if ( GetCookie(fc[i].pos) != null) {
+				var dtime=GetCookie(fc[i].pos);
+				var xtime=GetCookie(fc[i].pos+"x");
+				var exp=new Date();
+				dtime=dtime-parseInt((exp.getTime()+(dtime-1)*1000-xtime*1000-Date.UTC(2014,9,25))/1000);
+				document.getElementById(fc[i].pos+"tm").innerHTML = ShowTime(dtime);
+				dtime=dtime-1;
+				SetCookie(fc[i].pos,dtime);
+			}
+			else {
+				document.getElementById(fc[i].pos+"tm").innerHTML = "00:00:00";
+			}
+		}
+		else{
+			if(fc[i].now>0){
+				document.getElementById(fc[i].pos+"tm").innerHTML = ShowTime(fc[i].now);
+				fc[i].now=fc[i].now-1;
+			}
+			else{
+				document.getElementById(fc[i].pos+"tm").innerHTML = "00:00:00";
+			}
+		}
+	}	
+	timeID = window.setTimeout("DownCount()",1000)
+}*/
 function DownCount(){
 	window.clearTimeout(timeID);
-	for ( var i=0;i<fc.length;i++) { 
-		if ( GetCookie(fc[i].pos) != null) {
-			var dtime=GetCookie(fc[i].pos);
-			var xtime=GetCookie(fc[i].pos+"x");
-			var exp=new Date();
-			dtime=dtime-parseInt((exp.getTime()+(dtime-1)*1000-xtime*1000-Date.UTC(2014,9,25))/1000);
-			document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url);
-			document.getElementById(fc[i].pos+"tm").innerHTML = ShowTime(dtime);
-			dtime=dtime-1;
-			SetCookie(fc[i].pos,dtime);
+	for ( var i=0;i<fc.length;i++) {
+		document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url);
+		if(enCookie){
+			if ( GetCookie(fc[i].pos) != null) {
+				fc[i].now=GetCookie(fc[i].pos)-1;
+				var xtime=GetCookie(fc[i].pos+"x");
+				var exp=new Date();
+				fc[i].now=fc[i].now-parseInt((exp.getTime()+fc[i].now*1000-xtime*1000-Date.UTC(2014,9,25))/1000);
+				document.getElementById(fc[i].pos+"tm").innerHTML = ShowTime(fc[i].now);
+				SetCookie(fc[i].pos,fc[i].now);
+			}
+			else {
+				document.getElementById(fc[i].pos+"tm").innerHTML = "00:00:00";
+			}
 		}
-		else {
-			document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url);
-			document.getElementById(fc[i].pos+"tm").innerHTML = "00:00:00";
+		else{
+			if(fc[i].now>0){
+				document.getElementById(fc[i].pos+"tm").innerHTML = ShowTime(fc[i].now);
+				fc[i].now=fc[i].now-1;
+			}
+			else{
+				document.getElementById(fc[i].pos+"tm").innerHTML = "00:00:00";
+			}
 		}
 	}	
 	timeID = window.setTimeout("DownCount()",1000)
@@ -131,6 +163,9 @@ function ArrSort(Arr) {
 				tmp=Arr[i].tim;
 				Arr[i].tim=Arr[j].tim;
 				Arr[j].tim=tmp;
+				tmp=Arr[i].now;
+				Arr[i].now=Arr[j].now;
+				Arr[j].now=tmp;
 				tmp=Arr[i].url;
 				Arr[i].url=Arr[j].url;
 				Arr[j].url=tmp;
@@ -158,7 +193,7 @@ function DivClick(id,time,url) {
 		vra.click(); 		
 	}
 }
-function onTt(id) {
+/*function onTt(id) {
 	var i=parseInt(id.replace(/^p|tt$/ig,""));
 	SetCookie(fc[i].pos,fc[i].tim);
 	var vra=document.createElement("a"); 
@@ -166,30 +201,59 @@ function onTt(id) {
 	vra.href=fc[i].url; 
 	document.getElementById(id).appendChild(vra); 
 	vra.click(); 	
+}*/
+function onTt(id) {
+	var i=parseInt(id.replace(/^p|tt$/ig,""));
+	var vra=document.createElement("a"); 
+	vra.target="_blank";
+	if(enCookie){
+		SetCookie(fc[i].pos,fc[i].tim);
+		AddCookie("url",fc[i].url);
+		vra.href="browser.html";
+	}
+	else{
+		vra.href=fc[i].url;
+	}
+	document.getElementById(id).appendChild(vra); 
+	vra.click(); 	
 }
 function onRs(id) {
 	var i=parseInt(id.replace(/^p|rs$/ig,""));
-	SetCookie(fc[i].pos,fc[i].tim);
+	if(enCookie){
+		SetCookie(fc[i].pos,fc[i].tim);
+	}
+	else{
+		fc[i].now=fc[i].tim;
+	}
 }
 function onUp(id) {
 	var i=parseInt(id.replace(/^p|up$/ig,""));
 	if(i>0){
-		var d0=0;
-		if ( GetCookie(fc[i].pos) != null) {
-			d0=GetCookie(fc[i].pos);
+		if(enCookie){
+			var d0=0;
+			if ( GetCookie(fc[i].pos) != null) {
+				d0=GetCookie(fc[i].pos);
+				DelCookie(fc[i].pos);
+				DelCookie(fc[i].pos+"x");			
+			}
+			var d1=0;
+			if ( GetCookie(fc[i-1].pos) != null) {
+				d1=GetCookie(fc[i-1].pos);
+				DelCookie(fc[i-1].pos);
+				DelCookie(fc[i-1].pos+"x");			
+			}
+			SetCookie(fc[i-1].pos,d0);
+			SetCookie(fc[i].pos,d1);
 		}
-		var d1=0;
-		if ( GetCookie(fc[i-1].pos) != null) {
-			d1=GetCookie(fc[i-1].pos);
-		}
-		SetCookie(fc[i-1].pos,d0);
-		SetCookie(fc[i].pos,d1);
 		var tmp=fc[i].pri;
 		fc[i].pri=fc[i-1].pri;
 		fc[i-1].pri=tmp;
 		tmp=fc[i].tim;
 		fc[i].tim=fc[i-1].tim;
 		fc[i-1].tim=tmp;
+		tmp=fc[i].now;
+		fc[i].now=fc[i-1].now;
+		fc[i-1].now=tmp;
 		tmp=fc[i].url;
 		fc[i].url=fc[i-1].url;
 		fc[i-1].url=tmp;
@@ -198,22 +262,31 @@ function onUp(id) {
 function onDw(id) {
 	var i=parseInt(id.replace(/^p|dw$/ig,""));
 	if(i<fc.length){
-		var d0=0;
-		if ( GetCookie(fc[i].pos) != null) {
-			d0=GetCookie(fc[i].pos);
+		if(enCookie){	
+			var d0=0;
+			if ( GetCookie(fc[i].pos) != null) {
+				d0=GetCookie(fc[i].pos);
+				DelCookie(fc[i].pos);
+				DelCookie(fc[i].pos+"x");
+			}
+			var d1=0;
+			if ( GetCookie(fc[i+1].pos) != null) {
+				d1=GetCookie(fc[i+1].pos);
+				DelCookie(fc[i+1].pos);
+				DelCookie(fc[i+1].pos+"x");	
+			}
+			SetCookie(fc[i+1].pos,d0);
+			SetCookie(fc[i].pos,d1);
 		}
-		var d1=0;
-		if ( GetCookie(fc[i+1].pos) != null) {
-			d1=GetCookie(fc[i+1].pos);
-		}
-		SetCookie(fc[i+1].pos,d0);
-		SetCookie(fc[i].pos,d1);		
 		var tmp=fc[i].pri;
 		fc[i].pri=fc[i+1].pri;
 		fc[i+1].pri=tmp;
 		tmp=fc[i].tim;
 		fc[i].tim=fc[i+1].tim;
 		fc[i+1].tim=tmp;
+		tmp=fc[i].now;
+		fc[i].now=fc[i+1].now;
+		fc[i+1].now=tmp;		
 		tmp=fc[i].url;
 		fc[i].url=fc[i+1].url;
 		fc[i+1].url=tmp;

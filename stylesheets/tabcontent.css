@@ -25,7 +25,7 @@ ul.tabs li a
     border: 1px solid #CCC;
     border-bottom-color:#B7B7B7;
     color: #000;
-    background: #F0F0F0 url(tabbg.gif) 0 0 repeat-x;
+    background: #F0F0F0 url(../images/tabbg.gif) 0 0 repeat-x;
     border-radius: 3px 3px 0 0;
     outline:none;
 }
@@ -38,7 +38,7 @@ ul.tabs li a:visited
 ul.tabs li a:hover
 {
     border: 1px solid #B7B7B7;
-    background:#F0F0F0 url(tabbg.gif) 0 -36px repeat-x;
+    background:#F0F0F0 url(../images/tabbg.gif) 0 -36px repeat-x;
 }
         
 ul.tabs li.selected a, ul.tabs li.selected a:hover

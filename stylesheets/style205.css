@@ -60,7 +60,7 @@ div.mytitle:hover
 
 div.title_row 
 {
-	background:#F0F0F0 url(capbg.gif) 0px 0px repeat-x;
+	background:#F0F0F0 url(../images/capbg.gif) 0px 0px repeat-x;
 	width:248px;
 	height:21px;
 	margin:2px;
@@ -78,7 +78,7 @@ div.title_row
 
 div.title_row:hover
 {
-	background:#F0F0F0 url(capbg.gif) 0px -24px repeat-x;
+	background:#F0F0F0 url(../images/capbg.gif) 0px -24px repeat-x;
 	text-decoration:none;
 	color:blue;
 }
@@ -178,7 +178,7 @@ div.info a:hover
 
 div#price
 {
-	background:#fff url(bitcoin.jpg) 650px 5px no-repeat;
+	background:#fff url(../images/bitcoin.jpg) 650px 5px no-repeat;
 	background-size:24px 24px;
 	padding:5px 8px 0px 2px;
 	text-align:right;
@@ -238,7 +238,7 @@ div.friendlinks
 }
 div.flcap 
 {
-	background:#F0F0F0 url(capbg.gif) 0px 0px repeat-x;
+	background:#F0F0F0 url(../images/capbg.gif) 0px 0px repeat-x;
 	width:790px;
 	height:21px;
 	margin:2px;
@@ -294,7 +294,7 @@ div.flcontent a:hover
 	border-bottom-color:#888;
 	box-shadow:1px 1px 3px #aaa;
 	text-align:center;
-//	background:url(bg.jpg) no-repeat;
+//	background:url(../images/bg.jpg) no-repeat;
 }
 
 .tt
