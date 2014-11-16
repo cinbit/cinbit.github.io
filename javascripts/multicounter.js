@@ -4,7 +4,8 @@
 *  @date   2014-08-31
 *  @email  btcinvestor@sina.com
 */
-var enCookie=ChkCookie();
+//var enCookie=ChkCookie();
+var enCookie=false;
 //alert(enCookie);
 var timeID 	= window.setTimeout("DownCount()",1000);
 function SetCookie(name,secTime) {
