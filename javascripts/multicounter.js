@@ -5,7 +5,7 @@
 *  @email  btcinvestor@sina.com
 */
 var enCookie=ChkCookie();
-alert(enCookie);
+//alert(enCookie);
 var timeID 	= window.setTimeout("DownCount()",1000);
 function SetCookie(name,secTime) {
     var exp = new Date();
@@ -13,9 +13,16 @@ function SetCookie(name,secTime) {
 	document.cookie = name + "="+ escape(secTime) + ";expires=" + exp.toUTCString() + "; path=/;";
 	document.cookie = name + "x="+ escape(parseInt((exp.getTime()-Date.UTC(2014,9,25))/1000)) + ";expires=" + exp.toUTCString() + "; path=/;";
 }
-function AddCookie(name,value) {
-	document.cookie = name + "=" + escape(value) + "; path=/;";
-} 
+function AddCookie(name,value,expdays) {
+	var str=name+"="+escape(value);
+	if(expdays>0){
+		var exp = new Date();
+		var ms = expdays*24*3600*1000;
+		exp.setTime(exp.getTime() + ms);
+		str += "; expires=" + exp.toUTCString();
+	}
+	document.cookie = str + "; path=/;";
+}
 function DelCookie(name){
 	var exp = new Date(); 
 	exp.setTime(exp.getTime() - 10000);
@@ -31,7 +38,7 @@ function GetCookie(name) {
 	}
 }
 function ChkCookie(){
-	AddCookie("test","ok");
+	AddCookie("test","ok",0);
 	if(GetCookie("test")=="ok"){
 		DelCookie("test");
 		return true;
@@ -154,26 +161,153 @@ function DownCount(){
 		}
 	}
 }*/
-function ArrSort(Arr) {
-	for(var i=0;i<Arr.length;i++){
-		for(var j=i;j<Arr.length;j++){
-			if(Arr[i].pri>Arr[j].pri){
-				var tmp=Arr[i].pri;
-				Arr[i].pri=Arr[j].pri;
-				Arr[j].pri=tmp;
-				tmp=Arr[i].tim;
-				Arr[i].tim=Arr[j].tim;
-				Arr[j].tim=tmp;
-				tmp=Arr[i].now;
-				Arr[i].now=Arr[j].now;
-				Arr[j].now=tmp;
-				tmp=Arr[i].url;
-				Arr[i].url=Arr[j].url;
-				Arr[j].url=tmp;
+function sortArr(obj) {
+	for(var i=0;i<obj.length;i++){
+		for(var j=i;j<obj.length;j++){
+			if(obj[i].pri>obj[j].pri){
+				swapObj(obj[i],obj[j]);
 			}
 		}
 	}
 }
+function compressNum(arr){
+	var data=new Array();
+	if(arr.length>2){
+		data.push(arr[0]);
+		for(var i=1;i<arr.length-1;i++){
+			if(arr[i]==arr[i-1]+1&&arr[i+1]==arr[i]+1){
+				if(data[data.length-1]!="+"){
+					data.push("+");
+				}
+			}
+			else if(arr[i]==arr[i-1]-1&&arr[i+1]==arr[i]-1){
+				if(data[data.length-1]!="-"){
+					data.push("-");
+				}			
+			}
+			else{
+				data.push(arr[i]);
+			}
+		}
+		data.push(arr[arr.length-1]);
+	}
+	else{
+		for(var i=0;i<arr.length;i++){
+			data.push(arr[i]);
+		}
+	}
+	var str=data.join();
+	str=str.replace(/,\+,/g,"+");
+	str=str.replace(/,-,/g,"-");
+	return str;
+}
+function uncompressNum(str){
+	str=str.replace(/\+/g,",+,");
+	str=str.replace(/-/g,",-,");
+	var data=str.split(",");
+	var arr=new Array();
+	if(data.length>2){
+		arr.push(data[0]);
+		for(var i=1;i<data.length-1;i++){
+			if(data[i]=="+"){
+				for(var j=1;j<data[i+1]-data[i-1];j++){
+					arr.push(Number(data[i-1])+j);
+				}
+			}
+			else if(data[i]=="-"){
+				for(var j=1;j<data[i-1]-data[i+1];j++){
+					arr.push(data[i-1]-j);
+				}
+			}
+			else{
+				arr.push(data[i]);
+			}
+		}
+		arr.push(data[data.length-1]);
+	}
+	else{
+		for(var i=0;i<data.length;i++){
+			arr.push(data[i]);
+		}
+	}
+	return arr;
+}
+function SetPersonalize(){
+	if(enCookie){
+		var arrpri=new Array();
+		for ( var i=0;i<fc.length;i++) {
+			arrpri.push(fc[i].pri);
+		}
+		AddCookie("psl",compressNum(arrpri),30);
+	}
+}
+function GetPersonalize(){
+	if(enCookie){
+		if(GetCookie("psl") != null) {
+			var arrpri=uncompressNum(GetCookie("psl"));
+			var copyfc=fc.slice(0);
+			var tempfc=new Array();
+			for(var i=0;i<arrpri.length;i++){
+				tempfc=copyfc.slice(0);
+				if(arrpri[i]!=tempfc[i].pri){
+					swapObj(fc[i],tempfc[arrpri[i]]);
+				}
+			}
+		}
+	}
+}
+/*function uncompressNum(str){
+	str=str.replace(/\+/g,",+,");
+	str=str.replace(/-/g,",-,");
+	var data=str.split(",");
+	var arr=new Array();
+	var pos=1;
+	if(data.length>2){
+		arr[0]=data[0];
+		for(var i=1;i<data.length-1;i++){
+			if(data[i]=="+"){
+				for(var j=1;j<data[i+1]-data[i-1];j++){
+					arr[pos]=parseInt(data[i-1])+j;
+					pos+=1;
+				}
+			}
+			else if(data[i]=="-"){
+				for(var j=1;j<data[i-1]-data[i+1];j++){
+					arr[pos]=data[i-1]-j;
+					pos+=1;
+				}
+			}
+			else{
+				arr[pos]=data[i];
+				pos+=1;
+			}
+		}
+		arr[pos]=data[data.length-1];
+	}
+	else{
+		for(var i=1;i<arr.length;i++){
+			arr[i]=data[i];
+		}
+	}
+	return arr;
+}*/
+
+function swapObj(x,y){
+	var t;
+	t=x.pri;
+	x.pri=y.pri;
+	y.pri=t;
+	t=x.tim;
+	x.tim=y.tim;
+	y.tim=t;
+	t=x.now;
+	x.now=y.now;
+	y.now=t;
+	t=x.url;
+	x.url=y.url;
+	y.url=t;	
+}
+
 /*function DivClick(obj) {
 	document.getElementById(obj.pos).onclick = function () {
 		SetCookie(obj.pos,obj.tim);
@@ -209,11 +343,12 @@ function onTt(id) {
 	vra.target="_blank";
 	if(enCookie){
 		SetCookie(fc[i].pos,fc[i].tim);
-		AddCookie("url",fc[i].url);
+		AddCookie("url",fc[i].url,0);
 		vra.href="browser.html";
 	}
 	else{
 		vra.href=fc[i].url;
+		fc[i].now=fc[i].tim;
 	}
 	document.getElementById(id).appendChild(vra); 
 	vra.click(); 	
@@ -246,18 +381,8 @@ function onUp(id) {
 			SetCookie(fc[i-1].pos,d0);
 			SetCookie(fc[i].pos,d1);
 		}
-		var tmp=fc[i].pri;
-		fc[i].pri=fc[i-1].pri;
-		fc[i-1].pri=tmp;
-		tmp=fc[i].tim;
-		fc[i].tim=fc[i-1].tim;
-		fc[i-1].tim=tmp;
-		tmp=fc[i].now;
-		fc[i].now=fc[i-1].now;
-		fc[i-1].now=tmp;
-		tmp=fc[i].url;
-		fc[i].url=fc[i-1].url;
-		fc[i-1].url=tmp;
+		swapObj(fc[i],fc[i-1]);
+		SetPersonalize();
 	}
 }
 function onDw(id) {
@@ -279,18 +404,8 @@ function onDw(id) {
 			SetCookie(fc[i+1].pos,d0);
 			SetCookie(fc[i].pos,d1);
 		}
-		var tmp=fc[i].pri;
-		fc[i].pri=fc[i+1].pri;
-		fc[i+1].pri=tmp;
-		tmp=fc[i].tim;
-		fc[i].tim=fc[i+1].tim;
-		fc[i+1].tim=tmp;
-		tmp=fc[i].now;
-		fc[i].now=fc[i+1].now;
-		fc[i+1].now=tmp;		
-		tmp=fc[i].url;
-		fc[i].url=fc[i+1].url;
-		fc[i+1].url=tmp;
+		swapObj(fc[i],fc[i+1]);
+		SetPersonalize();
 	}
 }
 function OpenURL(url,target) {
