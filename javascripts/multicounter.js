@@ -339,6 +339,7 @@ function DivClick(id,time,url) {
 	vra.click(); 	
 }*/
 function onTt(id) {
+document.getElementById(id).onclick = function () {
 	var i=parseInt(id.replace(/^p|tt$/ig,""));
 	var vra=document.createElement("a"); 
 	vra.target="_blank";
@@ -353,6 +354,7 @@ function onTt(id) {
 	}
 	document.getElementById(id).appendChild(vra); 
 	vra.click(); 	
+}
 }
 function onRs(id) {
 	var i=parseInt(id.replace(/^p|rs$/ig,""));
