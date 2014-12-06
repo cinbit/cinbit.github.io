@@ -271,6 +271,7 @@ function GetPersonalize(){
 					swapObj(fc[i],tempfc[arrpri[i]]);
 				}
 			}
+			alert(fc);
 		}
 	}
 }
