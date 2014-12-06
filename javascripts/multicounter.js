@@ -271,7 +271,7 @@ function GetPersonalize(){
 					swapObj(fc[i],tempfc[arrpri[i]]);
 				}
 			}
-			alert(fc);
+			alert(fc[0].now+"|"+fc[0].url+fc[1].now+"|"+fc[1].url+fc[2].now+"|"+fc[2].url+fc[3].now+"|"+fc[3].url+fc[4].now+"|"+fc[4].url);
 		}
 	}
 }
