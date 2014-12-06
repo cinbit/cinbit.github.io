@@ -278,7 +278,7 @@ function GetNow(){
 	if(enCookie){
 		if(GetCookie("now") != null) {
 			var strNow=GetCookie("now");
-			var arrNow=strNow.split(",");
+			var arrNow=strNow.split("|");
 			for(var i=0;i<arrNow.length;i++){
 				fc[i].now=arrNow[i];
 			}
@@ -296,7 +296,7 @@ function SetNow(){
 			}
 			arrNow.push(fc[i].now);
 		}
-		AddCookie("now",arrNow.join(),maxNow*1000);
+		AddCookie("now",arrNow.join("|"),maxNow*1000);
 	}
 }
 //SetNow();
