@@ -6,7 +6,7 @@
 */
 var enCookie=ChkCookie();
 //var enCookie=false;
-//alert(enCookie);
+alert(enCookie);
 var namePtn	= DomainPtn(prefix,suffix);
 
 var timeID 	= window.setTimeout("DownCount()",1000);
@@ -282,7 +282,7 @@ function GetNow(){
 			for(var i=0;i<arrNow.length;i++){
 				fc[i].now=arrNow[i];
 			}
-			alert(arrNow);
+			alert(strNow+":OK");
 		}
 	}
 }
