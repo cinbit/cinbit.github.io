@@ -282,6 +282,7 @@ function GetNow(){
 			for(var i=0;i<arrNow.length;i++){
 				fc[i].now=arrNow[i];
 			}
+			alert(arrNow);
 		}
 	}
 }
