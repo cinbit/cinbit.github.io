@@ -481,7 +481,7 @@ function onUp(id) {
 //	alert(fc[i].url+";"+fc[i-1].url);
 		swapObj(fc[i],fc[i-1]);
 //		alert(fc[i].url+";"+fc[i-1].url);
-//		SetNow();
+		SetNow();
 		SetPersonalize();
 	}
 }
@@ -489,7 +489,7 @@ function onDw(id) {
 	var i=parseInt(id.replace(/^p|dw$/ig,""));
 	if(i<fc.length){
 		swapObj(fc[i],fc[i+1]);
-//		SetNow();
+		SetNow();
 		SetPersonalize();
 	}
 }
