@@ -476,6 +476,7 @@ function onRs(id) {
 function onUp(id) {
 	var i=parseInt(id.replace(/^p|up$/ig,""));
 	if(i>0){
+	alert(fc[i].url+";"+fc[i-1].url);
 		swapObj(fc[i],fc[i-1]);
 		alert(fc[i].url+";"+fc[i-1].url);
 		SetNow();
