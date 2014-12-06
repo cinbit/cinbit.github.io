@@ -4,8 +4,8 @@
 *  @date   2014-08-31
 *  @email  btcinvestor@sina.com
 */
-//var enCookie=ChkCookie();
-var enCookie=false;
+var enCookie=ChkCookie();
+//var enCookie=false;
 //alert(enCookie);
 var namePtn	= DomainPtn(prefix,suffix);
 
@@ -16,12 +16,12 @@ function SetCookie(name,secTime) {
 	document.cookie = name + "="+ escape(secTime) + ";expires=" + exp.toUTCString() + "; path=/;";
 	document.cookie = name + "x="+ escape(parseInt((exp.getTime()-Date.UTC(2014,9,25))/1000)) + ";expires=" + exp.toUTCString() + "; path=/;";
 }
-function AddCookie(name,value,expdays) {
+function AddCookie(name,value,expms) {
 	var str=name+"="+escape(value);
-	if(expdays>0){
+	if(expms>0){
 		var exp = new Date();
-		var ms = expdays*24*3600*1000;
-		exp.setTime(exp.getTime() + ms);
+//		var ms = expdays*24*3600*1000;
+		exp.setTime(exp.getTime() + expms);
 		str += "; expires=" + exp.toUTCString();
 	}
 	document.cookie = str + "; path=/;";
@@ -88,7 +88,7 @@ function ShowTime(secTime) {
 	}	
 	timeID = window.setTimeout("DownCount()",1000)
 }*/
-function DownCount(){
+/*function DownCount(){
 	window.clearTimeout(timeID);
 	for ( var i=0;i<fc.length;i++) {
 		document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url,fc[i].pos);
@@ -116,6 +116,21 @@ function DownCount(){
 			}
 		}
 	}	
+	timeID = window.setTimeout("DownCount()",1000)
+}*/
+function DownCount(){
+	window.clearTimeout(timeID);
+	for ( var i=0;i<fc.length;i++) {
+		document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url,fc[i].pos);
+		if(fc[i].now>0){
+			document.getElementById(fc[i].pos+"tm").innerHTML = ShowTime(fc[i].now);
+			fc[i].now=fc[i].now-1;
+		}
+		else{
+			document.getElementById(fc[i].pos+"tm").innerHTML = "00:00:00";
+		}
+	}
+	SetNow();
 	timeID = window.setTimeout("DownCount()",1000)
 }
 /*function DownCount(){
@@ -241,7 +256,7 @@ function SetPersonalize(){
 		for ( var i=0;i<fc.length;i++) {
 			arrpri.push(fc[i].pri);
 		}
-		AddCookie("psl",compressNum(arrpri),30);
+		AddCookie("psl",compressNum(arrpri),30*24*60*60*1000);
 	}
 }
 function GetPersonalize(){
@@ -259,6 +274,31 @@ function GetPersonalize(){
 		}
 	}
 }
+function GetNow(){
+	if(enCookie){
+		if(GetCookie("now") != null) {
+			var strNow=GetCookie("now");
+			var arrNow=strNow.split(",");
+			for(var i=0;i<arrNow.length;i++){
+				fc[i].now=arrNow[i];
+			}
+		}
+	}
+}
+function SetNow(){
+	if(enCookie){
+		var arrNow=new Array();
+		var maxNow=0;
+		for ( var i=0;i<fc.length;i++) {
+			if(maxNow<fc[i].now){
+				maxNow=fc[i].now;
+			}
+			arrNow.push(fc[i].now);
+		}
+		AddCookie("now",arrNow.join(),maxNow*1000);
+	}
+}
+//SetNow();
 /*function uncompressNum(str){
 	str=str.replace(/\+/g,",+,");
 	str=str.replace(/-/g,",-,");
@@ -356,7 +396,7 @@ function DivClick(id,time,url) {
 	document.getElementById(id).appendChild(vra); 
 	vra.click(); 	
 }*/
-function onTt(id) {
+/*function onTt(id) {
 	var i=parseInt(id.replace(/^p|tt$/ig,""));
 	if(enCookie){
 		SetCookie(fc[i].pos,fc[i].tim);
@@ -418,6 +458,34 @@ function onDw(id) {
 			SetCookie(fc[i].pos,d1);
 		}
 		swapObj(fc[i],fc[i+1]);
+		SetPersonalize();
+	}
+}*/
+function onTt(id) {
+	var i=parseInt(id.replace(/^p|tt$/ig,""));
+	if(fc[i].now==0){
+		fc[i].now=fc[i].tim;
+		SetNow();
+	}
+}
+function onRs(id) {
+	var i=parseInt(id.replace(/^p|rs$/ig,""));
+	fc[i].now=fc[i].tim;
+	SetNow();
+}
+function onUp(id) {
+	var i=parseInt(id.replace(/^p|up$/ig,""));
+	if(i>0){
+		swapObj(fc[i],fc[i-1]);
+		SetNow();
+		SetPersonalize();
+	}
+}
+function onDw(id) {
+	var i=parseInt(id.replace(/^p|dw$/ig,""));
+	if(i<fc.length){
+		swapObj(fc[i],fc[i+1]);
+		SetNow();
 		SetPersonalize();
 	}
 }
