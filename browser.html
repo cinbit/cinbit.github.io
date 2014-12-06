@@ -3,14 +3,23 @@
 <head>
 <meta charset="utf-8" />
 <title>HTML5 Examples Page</title>
-
+<link rel="stylesheet" type="text/css" href="./stylesheets/a.css">
+<script type="text/javascript" src="./javascripts/data.js"></script>
 </head>
 <body>
-<iframe width='100%' height='100%' name='boot' id='boot' src='' frameborder='1' scrolling='no'></iframe>
-<SCRIPT   LANGUAGE="JavaScript">   
-<!--   
-document.getElementById('boot').src="http://www.baidu.com";
-//-->   
-</SCRIPT>  
+<div id="browser-iframe-container">
+<iframe name="browser-iframe" id="browser-iframe"></iframe>
+</div>
+<script type="text/javascript">   
+//var tmpArr;
+var QueryString;
+var URL = document.location.toString();
+QueryString= URL.substring(URL.lastIndexOf("=")+2,URL.length);
+var Num=parseInt(QueryString);
+//alert(Num);
+
+//document.write("parameters:" + QueryString + "<br/>");
+document.getElementById('browser-iframe').src=fc[Num].url;
+</script>  
 </body>
 </html>

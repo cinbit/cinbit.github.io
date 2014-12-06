@@ -24,3 +24,13 @@ fc[14] = {pos:"p14",pri:14,tim:7*60*60,now:0,url:"http://ll7l7l7lli.com/index2.p
 var homeURL		= "http://www.cinbit.com";
 var walletURL	= "https://www.kipcoin.com/signup.php?r=12499";
 var exchangeURL	= "https://www.okcoin.com/?invid=2001550";
+
+var prefix	= new Array(
+	"www.",
+	"^faucet."
+	);
+var suffix	= new Array(
+	".com",
+	".biz",
+	".info"
+	);

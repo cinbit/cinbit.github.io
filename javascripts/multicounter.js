@@ -7,6 +7,8 @@
 //var enCookie=ChkCookie();
 var enCookie=false;
 //alert(enCookie);
+var namePtn	= DomainPtn(prefix,suffix);
+
 var timeID 	= window.setTimeout("DownCount()",1000);
 function SetCookie(name,secTime) {
     var exp = new Date();
@@ -89,7 +91,7 @@ function ShowTime(secTime) {
 function DownCount(){
 	window.clearTimeout(timeID);
 	for ( var i=0;i<fc.length;i++) {
-		document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url);
+		document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url,fc[i].pos);
 		if(enCookie){
 			if ( GetCookie(fc[i].pos) != null) {
 				var dtime=GetCookie(fc[i].pos);
@@ -338,7 +340,7 @@ function DivClick(id,time,url) {
 	document.getElementById(id).appendChild(vra); 
 	vra.click(); 	
 }*/
-function onTt(id) {
+/*function onTt(id) {
 	var i=parseInt(id.replace(/^p|tt$/ig,""));
 	var vra=document.createElement("a"); 
 	vra.target="_blank";
@@ -353,6 +355,16 @@ function onTt(id) {
 	}
 	document.getElementById(id).appendChild(vra); 
 	vra.click(); 	
+}*/
+function onTt(id) {
+	var i=parseInt(id.replace(/^p|tt$/ig,""));
+	if(enCookie){
+		SetCookie(fc[i].pos,fc[i].tim);
+		AddCookie("url",fc[i].url,0);
+	}
+	else{
+		fc[i].now=fc[i].tim;
+	}
 }
 function onRs(id) {
 	var i=parseInt(id.replace(/^p|rs$/ig,""));
@@ -416,7 +428,7 @@ function OpenURL(url,target) {
 	document.body.appendChild(vra); 
 	vra.click(); 		
 }
-function ShowDomain(url) {
+/*function ShowDomain(url) {
 	var suffix	= new Array(
 //		".co.in",
 		".com",
@@ -441,7 +453,41 @@ function ShowDomain(url) {
 	var strArr	= url.split("/",3);
 	var str		= strArr[2].replace(reg,"");
 	return str;
+}*/
+function DomainPtn(pfix,sfix) {
+	var strPtn	= "";
+	for (var i=0;i<sfix.length;i++) {
+		strPtn	= strPtn + sfix[i].replace(".","\\.")+"|";
+	}
+	for (var j=0;j<pfix.length;j++) {
+		strPtn	= strPtn + pfix[j].replace(".","\\.")+"|";
+	}
+	strPtn	= strPtn + "\\.";
+	var reg = new RegExp(strPtn,"gi");
+	return reg;
 }
+function ShowDomain(url,num) {
+	var strArr = url.match(/[^\:|\/]+/gi);
+	var str	= strArr[1].replace(namePtn,"");
+	str = "<a href='browser.html?pos="+num+"' target='_blank'>"+str+"</a>";
+	return str;
+}
+/*function onTt(id) {
+	var i=parseInt(id.replace(/^p|tt$/ig,""));
+	var vra=document.createElement("a"); 
+	vra.target="_blank";
+	if(enCookie){
+		SetCookie(fc[i].pos,fc[i].tim);
+		AddCookie("url",fc[i].url,0);
+		vra.href="browser.html";
+	}
+	else{
+		vra.href=fc[i].url;
+		fc[i].now=fc[i].tim;
+	}
+	document.getElementById(id).appendChild(vra); 
+	vra.click(); 	
+}*/
 function liame(){
 var l=new Array("&#97","&#98","&#99","&#105","&#109","&#110","&#111","&#116","&#64","&#46");
 document.getElementById("liame").innerHTML="联系："+l[2]+l[6]+l[5]+l[7]+l[0]+l[2]+l[7]+l[8]+l[2]+l[3]+l[5]+l[1]+l[3]+l[7]+l[9]+l[2]+l[6]+l[4];
