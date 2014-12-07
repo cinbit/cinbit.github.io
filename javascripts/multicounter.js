@@ -488,9 +488,9 @@ function onRs(id) {
 function onUp(id) {
 	var i=parseInt(id.replace(/^p|up$/ig,""));
 	if(i>0){
-//	alert(fc[i].url+";"+fc[i-1].url);
 		swapObj(fc[i],fc[i-1]);
-//		alert(fc[i].url+";"+fc[i-1].url);
+		document.getElementById(fc[i-1].pos+"tt").innerHTML = ShowDomain(fc[i-1].url,fc[i-1].pos);
+		document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url,fc[i].pos);
 		SetPersonalize();
 		SetNow();
 	}
@@ -499,6 +499,8 @@ function onDw(id) {
 	var i=parseInt(id.replace(/^p|dw$/ig,""));
 	if(i<fc.length){
 		swapObj(fc[i],fc[i+1]);
+		document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url,fc[i].pos);
+		document.getElementById(fc[i+1].pos+"tt").innerHTML = ShowDomain(fc[i+1].url,fc[i+1].pos);
 		SetPersonalize();
 		SetNow();
 	}
