@@ -553,7 +553,7 @@ function DomainPtn(pfix,sfix) {
 function ShowDomain(url,num) {
 	var strArr = url.match(/[^\:|\/]+/gi);
 	var str	= strArr[1].replace(namePtn,"");
-	str = "<a href='browser.html?pri="+num+"' target='_blank'>"+str+"</a>";
+	str = "<a href='browser.html?p="+num+"' target='_blank'>"+str+"</a>";
 	return str;
 }
 /*function onTt(id) {
