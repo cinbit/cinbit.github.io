@@ -19,7 +19,12 @@ var Num=parseInt(QueryString);
 //alert(Num);
 
 //document.write("parameters:" + QueryString + "<br/>");
-document.getElementById('browser-iframe').src=fc[Num].url;
+for ( var i=0;i<fc.length;i++) {
+	if(fc[i].pri==Num){
+		document.getElementById('browser-iframe').src=fc[i].url;
+		break;
+	}
+}
 </script>  
 </body>
 </html>

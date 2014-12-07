@@ -281,7 +281,7 @@ function GetPersonalize(){
 		}
 	}
 	for ( var k=0;k<fc.length;k++) {
-		document.getElementById(fc[k].pos+"tt").innerHTML = ShowDomain(fc[k].url,fc[k].pos);
+		document.getElementById(fc[k].pos+"tt").innerHTML = ShowDomain(fc[k].url,fc[k].pri);
 	}
 }
 function GetNow(){
@@ -489,8 +489,8 @@ function onUp(id) {
 	var i=parseInt(id.replace(/^p|up$/ig,""));
 	if(i>0){
 		swapObj(fc[i],fc[i-1]);
-		document.getElementById(fc[i-1].pos+"tt").innerHTML = ShowDomain(fc[i-1].url,fc[i-1].pos);
-		document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url,fc[i].pos);
+		document.getElementById(fc[i-1].pos+"tt").innerHTML = ShowDomain(fc[i-1].url,fc[i-1].pri);
+		document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url,fc[i].pri);
 		SetPersonalize();
 		SetNow();
 	}
@@ -499,8 +499,8 @@ function onDw(id) {
 	var i=parseInt(id.replace(/^p|dw$/ig,""));
 	if(i<fc.length){
 		swapObj(fc[i],fc[i+1]);
-		document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url,fc[i].pos);
-		document.getElementById(fc[i+1].pos+"tt").innerHTML = ShowDomain(fc[i+1].url,fc[i+1].pos);
+		document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url,fc[i].pri);
+		document.getElementById(fc[i+1].pos+"tt").innerHTML = ShowDomain(fc[i+1].url,fc[i+1].pri);
 		SetPersonalize();
 		SetNow();
 	}
@@ -553,7 +553,7 @@ function DomainPtn(pfix,sfix) {
 function ShowDomain(url,num) {
 	var strArr = url.match(/[^\:|\/]+/gi);
 	var str	= strArr[1].replace(namePtn,"");
-	str = "<a href='browser.html?pos="+num+"' target='_blank'>"+str+"</a>";
+	str = "<a href='browser.html?pri="+num+"' target='_blank'>"+str+"</a>";
 	return str;
 }
 /*function onTt(id) {
