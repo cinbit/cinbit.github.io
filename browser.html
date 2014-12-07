@@ -16,11 +16,12 @@ var QueryString;
 var URL = document.location.toString();
 QueryString= URL.substring(URL.lastIndexOf("=")+2,URL.length);
 var Num=parseInt(QueryString);
-//alert(Num);
+alert(Num);
 
 //document.write("parameters:" + QueryString + "<br/>");
 for ( var i=0;i<fc.length;i++) {
 	if(fc[i].pri==Num){
+	alert(fc[i].url);
 		document.getElementById('browser-iframe').src=fc[i].url;
 		break;
 	}
