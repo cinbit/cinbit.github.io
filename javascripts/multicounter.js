@@ -121,7 +121,7 @@ function ShowTime(secTime) {
 function DownCount(){
 	window.clearTimeout(timeID);
 	for ( var i=0;i<fc.length;i++) {
-		document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url,fc[i].pos);
+//		document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url,fc[i].pos);
 		if(fc[i].now>0){
 			document.getElementById(fc[i].pos+"tm").innerHTML = ShowTime(fc[i].now);
 			fc[i].now=fc[i].now-1;
@@ -271,9 +271,17 @@ function GetPersonalize(){
 					swapObj(fc[i],tempfc[arrpri[i]]);
 				}
 			}
-			alert(arrpri);
-			alert(fc[0].now+"|"+fc[0].url+"&"+fc[1].now+"|"+fc[1].url+"&"+fc[2].now+"|"+fc[2].url+"&"+fc[3].now+"|"+fc[3].url+"&"+fc[4].now+"|"+fc[4].url);
 		}
+		if(GetCookie("now") != null) {
+			var strNow=GetCookie("now");
+			var arrNow=strNow.split("|");
+			for(var j=0;j<arrNow.length;j++){
+				fc[j].now=arrNow[j];
+			}
+		}
+	}
+	for ( var k=0;k<fc.length;k++) {
+		document.getElementById(fc[k].pos+"tt").innerHTML = ShowDomain(fc[k].url,fc[k].pos);
 	}
 }
 function GetNow(){
