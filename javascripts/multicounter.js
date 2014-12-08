@@ -275,8 +275,12 @@ function GetPersonalize(){
 		if(GetCookie("now") != null) {
 			var strNow=GetCookie("now");
 			var arrNow=strNow.split("|");
-			for(var j=0;j<arrNow.length;j++){
-				fc[j].now=arrNow[j];
+			var Tnow=new Date();
+			var PastSec=parseInt((Tnow.getTime()-Date.UTC(2014,12,1))/1000)-parseInt(arrNow[arrNow.length-1]);
+			for(var j=0;j<arrNow.length-1;j++){
+				if(arrNow[j]-PastSec>0){
+					fc[j].now=arrNow[j]-PastSec;
+				}
 			}
 		}
 	}
@@ -301,16 +305,35 @@ function SetNow(){
 	if(enCookie){
 		var arrNow=new Array();
 		var maxNow=0;
+		var Tnow=new Date();
 		for ( var i=0;i<fc.length;i++) {
 			if(maxNow<fc[i].now){
 				maxNow=fc[i].now;
 			}
 			arrNow.push(fc[i].now);
 		}
+		arrNow.push(parseInt((Tnow.getTime()-Date.UTC(2014,12,1))/1000));
 		AddCookie("now",arrNow.join("|"),maxNow*1000);
 	}
 }
 //SetNow();
+/*function AddCookie(name,value,expms) {
+	var str=name+"="+escape(value);
+	if(expms>0){
+		var exp = new Date();
+//		var ms = expdays*24*3600*1000;
+		exp.setTime(exp.getTime() + expms);
+		str += "; expires=" + exp.toUTCString();
+	}
+	document.cookie = str + "; path=/;";
+}
+function SetCookie(name,secTime) {
+    var exp = new Date();
+    exp.setTime(exp.getTime() + secTime*1000);
+	document.cookie = name + "="+ escape(secTime) + ";expires=" + exp.toUTCString() + "; path=/;";
+	document.cookie = name + "x="+ escape(parseInt((exp.getTime()-Date.UTC(2014,9,25))/1000)) + ";expires=" + exp.toUTCString() + "; path=/;";
+}
+*/
 /*function uncompressNum(str){
 	str=str.replace(/\+/g,",+,");
 	str=str.replace(/-/g,",-,");
