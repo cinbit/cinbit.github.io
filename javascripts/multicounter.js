@@ -6,7 +6,7 @@
 */
 var enCookie=ChkCookie();
 //var enCookie=false;
-alert(enCookie);
+//alert(enCookie);
 var namePtn	= DomainPtn(prefix,suffix);
 
 var timeID 	= window.setTimeout("DownCount()",1000);
@@ -615,3 +615,10 @@ function dU(Y) {
 	}
 	return  f;
 }
+var demo = document.getElementById("falshnew");
+function MarqueeLeft() {
+	demo.scrollLeft++;
+}
+var MyMar = setInterval(MarqueeLeft,40);
+demo.onmouseover = function () { clearInterval(MyMar); }
+demo.onmouseout = function () { MyMar = setInterval(MarqueeLeft,40); }

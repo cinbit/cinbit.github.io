@@ -39,8 +39,8 @@ div#footer
 
 div.mytitle
 {
-	width:258px;
-	height:95px;
+	width:800px;
+	height:115px;
 	border:1px solid #bbb;
 	border-radius:5px;
 	border-right-color:#888;
@@ -61,7 +61,7 @@ div.mytitle:hover
 div.title_row 
 {
 	background:#F0F0F0 url(../images/capbg.gif) 0px 0px repeat-x;
-	width:248px;
+	width:790px;
 	height:21px;
 	margin:2px;
 	padding:3px 2px 0px 2px;
@@ -86,11 +86,13 @@ div.title_row:hover
 div.pic 
 {
 	padding:1px 2px 2px 2px;
+	margin:10px 0px 0px 0px;
 	vertical-align:middle;
 	width:60px;
 	height:60px;
 	border-radius:0px 0px 0px 3px;
 	position:relative;
+	border:1px solid #bbb;
 }
 
 div.pic img
@@ -103,8 +105,8 @@ div.pic img
 
 div.desc
 {
-	width:187px;
-	height:40px;
+	width:729px;
+	height:60px;
 	padding:2px 2px 0px 3px;
 	font-family:'宋体',Tahoma,Arial,Helvetica,sans-serif;
 	white-space:normal;
@@ -112,11 +114,12 @@ div.desc
 	font-size:13px;
 	vertical-align:top;
 	overflow:hidden;
+	border:1px solid #bbb;
 }
 
 div.help
 {
-	width:184px;
+	width:726px;
 	height:18px;
 	padding:2px 6px 0px 2px;
 	text-align:right;
@@ -124,11 +127,12 @@ div.help
 	font-family:'宋体',Tahoma;
 	color:#888;	
 	position:relative;
+//	border:1px solid #bbb;
 }
 
 div.help img
 {
-	left:142px;
+	left:684px;
 	width:16px;
 	height:16px;
 	position:absolute;
@@ -155,6 +159,7 @@ div.info
 	font-family:'宋体',Tahoma;
 	color:#888;	
 	position:relative;
+	border:1px solid #bbb;
 }
 
 div.info img
@@ -383,4 +388,60 @@ position:absolute;
 {
 	border: 0;
 	vertical-align:middle;
+}
+
+.w800
+{
+	width:800px;
+	margin:0 auto;
+}
+
+.news_flash
+{ 
+	height:22px;
+	margin-bottom:20px;
+	line-height:22px;
+	font-family:'微软雅黑', Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+.news_flash span
+{
+	margin-right:15px;
+	display:block;
+	float:left;
+	color:#FFF;
+	height:22px;
+	width:60px;
+	text-align:center;
+	background:#F7931A;
+}
+
+.news_flash .new_cont
+{
+	height:22px;
+	line-height:22px;
+	float:left;
+	width:700px;
+	overflow:hidden;
+	white-space:nowrap;
+}
+
+.news_flash a,a:link
+{
+	padding: 0 10px;
+	background:url(../images/a_17.gif) no-repeat left;
+	color:#666666;
+	text-decoration:none;
+	cursor:pointer;
+}
+
+.news_flash a:hover
+{
+	color:#F7931A;
+}
+
+.news_flash a:focus
+{
+	outline:none;
 }
