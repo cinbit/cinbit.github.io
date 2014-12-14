@@ -320,7 +320,7 @@
 	</div>
 	<div class="ft">
 		<img id="donate" src="./images/donate.gif" alt="捐助"/>
-		<span id="donateaddr">比特币地址：<input type="text" id="daddr" size="40" title="Ctrl+C 复制地址" value="19nNkBMzMqPdTxA8cLKAo5jJo13pW9mCAs" readonly onmouseover="this.select();" />&nbsp&nbsp扫描二维码：</span><span id="qr"></span>
+		<span id="donateaddr">比特币地址：<input type="text" id="daddr" size="40" title="Ctrl+C 复制地址" value="19nNkBMzMqPdTxA8cLKAo5jJo13pW9mCAs" data-clipboard-text="19nNkBMzMqPdTxA8cLKAo5jJo13pW9mCAs" readonly onmouseover="this.select();" />&nbsp&nbsp扫描二维码：</span><span id="qr"></span>
 	</div>
 	<div class="ft">
 		<span class="reginfo">©2006-2014 cinbit.com</span>
@@ -346,7 +346,7 @@
 	<script type="text/javascript" src="./javascripts/ZeroClipboard.min.js"></script>
 
     <script type="text/javascript">
-      var client = new ZeroClipboard( document.getElementById('d_clip_button') );
+      var client = new ZeroClipboard( document.getElementById('daddr') );
     </script>
 </body>
 </html>
