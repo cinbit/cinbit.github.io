@@ -5,10 +5,18 @@
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 	<link rel="icon" type="image/x-icon" href="favicon.ico" />
 	<link rel="Bookmark" type="image/x-icon" href="favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="./stylesheets/notices.css" />
+	<link rel="stylesheet" type="text/css" href="./stylesheets/friends.css" />
+	<link rel="stylesheet" type="text/css" href="./stylesheets/intro.css" />
     <link rel="stylesheet" type="text/css" href="./stylesheets/tabcontent.css" />
 	<link rel="stylesheet" type="text/css" href="./stylesheets/style205.css" />
+	<script type="text/javascript" src="./javascripts/datanotices.js"></script>
+	<script type="text/javascript" src="./javascripts/datafriends.js"></script>
+	<script type="text/javascript" src="./javascripts/datafaucets.js"></script>
     <script type="text/javascript" src="./javascripts/tabcontent.js"></script>
-	<script type="text/javascript" src="./javascripts/data.js"></script>
+	<script type="text/javascript" src="./javascripts/common.js"></script>
+	<script type="text/javascript" src="./javascripts/intro.js"></script>
+	
 </head>
 <body onload="GetPersonalize();">
 
@@ -16,31 +24,34 @@
 <table border="0" cellpadding="0" cellspacing="0" width="800">
 <tr>
 	<td>
-		<div class="titlebar" onclick="OpenURL(homeURL,'_self')">
+		<div class="titlebar">
 			<div class="bar clearfix">
-				<div class="logo"></div>
-				<div class="cn">誉通天下</div>
-<!--				<div class="en">Credit Internet Network</div>	-->
+				<a href="http://www.cinbit.com"><div id="step1" class="logo"></div><div class="cn">誉通天下</div></a>
 			</div>
 			<div class="menu clearfix">
-				<div class="item1 clearfix" onclick="">
-					<div class="icon1"></div>
-					<div class="text">微博</div>
+				<div class="item1 clearfix">
+					<a href="http://www.weibo.com/u/5399893323" target="_blank"><div class="icon1"></div><div class="text">微博</div></a>
 				</div>
-				<div class="item2 clearfix" onclick="">
-					<div class="icon2"></div>
-					<div class="text">帮助</div>
+				<div class="item2 clearfix" onclick="startIntro();">
+					<div class="icon2"></div><div class="text">帮助</div>
 				</div>
 			</div>
 			<div class="navi clearfix">
-				<div class="desc">比特币科技开创第二代互联网应用，从了解比特币开始！</div>
+				<div class="desc">比特币以及各种竞争币是去中心化的数字货币，这里是免费获得数字货币的平台。感受比特科技魅力，从誉通天下开始！</div>
+				<div id="step3" class="rotate"></div>
+				<div class="step">新手必备：<br />免费比特币收款钱包<br />小额线上转币零费用</div>
+				<div id="step4" class="rotate"></div>
+				<div class="step">新手推荐：<br />免费比特币小额存款<br />高息收益炒币两不误</div>
 			</div>
-			<div class="w800">
-				<div class="news_flash">
-					<span class="fl">快讯直播</span>
-					<div id="falshnew" class="new_cont">
-						<div id="falshnew1"><a href="http://www.btcside.com/weibo" target="_blank">虫虫爱阳光:转发微博</a><a href="http://www.btcside.com/weibo" target="_blank">神鱼BTCer:深圳的小伙伴idea还是很不错的 不过最近去股市的好多 [doge]...</a><a href="http://www.btcside.com/weibo" target="_blank">瑞波支付:印的越多，越能体现比特币的价值//@赵乐天: 正如靠吃伟哥不可能成...</a><a href="http://www.btcside.com/weibo" target="_blank">我看比特币:币友小聚，说的都是股市，什么节奏。。。 http://t.cn/RzWZmEz...</a><a href="http://www.btcside.com/weibo" target="_blank">比特天空网:我发表了文章 http://t.cn/RzW74Jy 2014-12-9 22:00 民主货币行情...</a><a href="http://www.btcside.com/weibo" target="_blank">BTC123_比特币导航:BTC123算力频道今晚正式启动 大家伙儿在车库咖啡 头脑风暴中 为大...</a><a href="http://www.btcside.com/weibo" target="_blank">赵乐天:正如靠吃伟哥不可能成为性超人一样，靠印钞也不可能使一个国家成为...</a><a href="http://www.btcside.com/weibo" target="_blank">赵乐天:转发微博</a><a href="http://www.btcside.com/weibo" target="_blank">OKCoin比特币:我参与了@OKCoin比特币 发起的投票【给你三十万，你会怎么花？】，...</a><a href="http://www.btcside.com/weibo" target="_blank">比特币观察:联手要把钱逼到股市//@杜均: //@宋欢平:巴比特反应速度挺快，希望...</a><a href="http://www.btcside.com/btcnews" target="_blank">Biccoin Newsbrief:禁止倾倒物料和矿业攻击：请问Bitcoin的被劫持？</a><a href="http://www.btcside.com/btcnews" target="_blank">Biccoin Newsbrief:圣路易斯企业加入Bitcoin的热潮</a><a href="http://www.btcside.com/btcnews" target="_blank">中国银行:我行代理速汇金公司个人跨境汇出汇款业务收费标准调整公告</a><a href="http://www.btcside.com/btcnews" target="_blank">路透社:“世界上第一个Bitcoin的唯一的”候选人进行的瑞典议会</a><a href="http://www.btcside.com/btcnews" target="_blank">中国银行:我行代理速汇金公司个人跨境汇出汇款业务收费标准公告</a><a href="http://www.btcside.com/btcnews" target="_blank">招商银行:招商银行股份有限公司零售不良贷款...</a><a href="http://www.btcside.com/btcnews" target="_blank">中国农业银行:关于我行投资理财系统升级的公告（7月12日）</a><a href="http://www.btcside.com/btcnews" target="_blank">比特时代公告:新闻公告 时代币7月11日分红 每币分红0.00048元和0.00000009BTC...</a><a href="http://www.btcside.com/btcnews" target="_blank">中国工商银行:关于我行系统升级的通告</a><a href="http://www.btcside.com/btcnews" target="_blank">路透社:被指暗网集市丝绸之路的创造者失去解雇出价</a></div>
-					</div>
+			<div id="step5" class="news clearfix">
+				<div class="flash">最新公告</div>
+				<div id="demo">
+					<table border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td><div id="demo1" class="notice"></div></td>
+						<td><div id="demo2" class="notice"></div></td>
+					</tr>
+					</table>
 				</div>
 			</div>
 		</div>
@@ -57,224 +68,14 @@
 	<td>
 		<div style="width: 800; margin: 0 auto; height:320; padding-left:0px; padding-right:0px; padding-top:0px; padding-bottom:0px">
 			<ul class="tabs" data-persist="true">
-				<li class=""><a href="#view1">免费比特币</a></li>
-				<li class=""><a href="#view2">信誉监督站</a></li>
-				<li class=""><a href="#view3">休闲小游戏</a></li>
+				<li class=""><a href="#view1">免费数字货币①</a></li>
+				<li class=""><a href="#view2">免费数字货币②</a></li>
+				<li class=""><a href="#view3">免费数字货币③</a></li>
 			</ul>
 			<div class="tabcontents">
-				<div id="view1" style="display: none; ">
-					<table border="0" cellSpacing="4" cellPadding="0" width="100%" align="center">
-					<tbody>
-					<tr>
-						<td width="20%" align="center">
-							<div class="faucet" id="p0">
-								<div class="tt" id="p0tt" onclick="onTt(this.id);"></div>
-								<div class="up" id="p0up" onclick="onUp(this.id);"><img class="img" src="./images/up.gif" title="排序前移" /></div>
-								<div class="dw" id="p0dw" onclick="onDw(this.id);"><img class="img" src="./images/dw.gif" title="排序后移" /></div>
-								<div class="tm" id="p0tm"></div>
-								<div class="hp" id="p0hp"><img class="img" src="./images/hp.gif" title="帮助信息" /></div>
-								<div class="rs" id="p0rs" onclick="onRs(this.id);"><img class="img" src="./images/rs.gif" title="重新计时" /></div>
-							</div>
-						</td>
-						<td width="20%" align="center">
-							<div class="faucet" id="p1">
-								<div class="tt" id="p1tt" onclick="onTt(this.id);"></div>
-								<div class="up" id="p1up" onclick="onUp(this.id);"><img class="img" src="./images/up.gif" title="排序前移" /></div>
-								<div class="dw" id="p1dw" onclick="onDw(this.id);"><img class="img" src="./images/dw.gif" title="排序后移" /></div>
-								<div class="tm" id="p1tm"></div>
-								<div class="hp" id="p1hp"><img class="img" src="./images/hp.gif" title="帮助信息" /></div>
-								<div class="rs" id="p1rs" onclick="onRs(this.id);"><img class="img" src="./images/rs.gif" title="重新计时" /></div>
-							</div>
-						</td>
-						<td width="20%" align="center">
-							<div class="faucet" id="p2">
-								<div class="tt" id="p2tt" onclick="onTt(this.id);"></div>
-								<div class="up" id="p2up" onclick="onUp(this.id);"><img class="img" src="./images/up.gif" title="排序前移" /></div>
-								<div class="dw" id="p2dw" onclick="onDw(this.id);"><img class="img" src="./images/dw.gif" title="排序后移" /></div>
-								<div class="tm" id="p2tm"></div>
-								<div class="hp" id="p2hp"><img class="img" src="./images/hp.gif" title="帮助信息" /></div>
-								<div class="rs" id="p2rs" onclick="onRs(this.id);"><img class="img" src="./images/rs.gif" title="重新计时" /></div>
-							</div>
-						</td>
-						<td width="20%" align="center">
-							<div class="faucet" id="p3">
-								<div class="tt" id="p3tt" onclick="onTt(this.id);"></div>
-								<div class="up" id="p3up" onclick="onUp(this.id);"><img class="img" src="./images/up.gif" title="排序前移" /></div>
-								<div class="dw" id="p3dw" onclick="onDw(this.id);"><img class="img" src="./images/dw.gif" title="排序后移" /></div>
-								<div class="tm" id="p3tm"></div>
-								<div class="hp" id="p3hp"><img class="img" src="./images/hp.gif" title="帮助信息" /></div>
-								<div class="rs" id="p3rs" onclick="onRs(this.id);"><img class="img" src="./images/rs.gif" title="重新计时" /></div>
-							</div>
-						</td>
-						<td width="20%" align="center">
-							<div class="faucet" id="p4">
-								<div class="tt" id="p4tt" onclick="onTt(this.id);"></div>
-								<div class="up" id="p4up" onclick="onUp(this.id);"><img class="img" src="./images/up.gif" title="排序前移" /></div>
-								<div class="dw" id="p4dw" onclick="onDw(this.id);"><img class="img" src="./images/dw.gif" title="排序后移" /></div>
-								<div class="tm" id="p4tm"></div>
-								<div class="hp" id="p4hp"><img class="img" src="./images/hp.gif" title="帮助信息" /></div>
-								<div class="rs" id="p4rs" onclick="onRs(this.id);"><img class="img" src="./images/rs.gif" title="重新计时" /></div>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td width="20%" align="center">
-							<div class="faucet" id="p5">
-								<div class="tt" id="p5tt" onclick="onTt(this.id);"></div>
-								<div class="up" id="p5up" onclick="onUp(this.id);"><img class="img" src="./images/up.gif" title="排序前移" /></div>
-								<div class="dw" id="p5dw" onclick="onDw(this.id);"><img class="img" src="./images/dw.gif" title="排序后移" /></div>
-								<div class="tm" id="p5tm"></div>
-								<div class="hp" id="p5hp"><img class="img" src="./images/hp.gif" title="帮助信息" /></div>
-								<div class="rs" id="p5rs" onclick="onRs(this.id);"><img class="img" src="./images/rs.gif" title="重新计时" /></div>
-							</div>
-						</td>
-						<td width="20%" align="center">
-							<div class="faucet" id="p6">
-								<div class="tt" id="p6tt" onclick="onTt(this.id);"></div>
-								<div class="up" id="p6up" onclick="onUp(this.id);"><img class="img" src="./images/up.gif" title="排序前移" /></div>
-								<div class="dw" id="p6dw" onclick="onDw(this.id);"><img class="img" src="./images/dw.gif" title="排序后移" /></div>
-								<div class="tm" id="p6tm"></div>
-								<div class="hp" id="p6hp"><img class="img" src="./images/hp.gif" title="帮助信息" /></div>
-								<div class="rs" id="p6rs" onclick="onRs(this.id);"><img class="img" src="./images/rs.gif" title="重新计时" /></div>
-							</div>
-						</td>
-						<td width="20%" align="center">
-							<div class="faucet" id="p7">
-								<div class="tt" id="p7tt" onclick="onTt(this.id);"></div>
-								<div class="up" id="p7up" onclick="onUp(this.id);"><img class="img" src="./images/up.gif" title="排序前移" /></div>
-								<div class="dw" id="p7dw" onclick="onDw(this.id);"><img class="img" src="./images/dw.gif" title="排序后移" /></div>
-								<div class="tm" id="p7tm"></div>
-								<div class="hp" id="p7hp"><img class="img" src="./images/hp.gif" title="帮助信息" /></div>
-								<div class="rs" id="p7rs" onclick="onRs(this.id);"><img class="img" src="./images/rs.gif" title="重新计时" /></div>
-							</div>
-						</td>
-						<td width="20%" align="center">
-							<div class="faucet" id="p8">
-								<div class="tt" id="p8tt" onclick="onTt(this.id);"></div>
-								<div class="up" id="p8up" onclick="onUp(this.id);"><img class="img" src="./images/up.gif" title="排序前移" /></div>
-								<div class="dw" id="p8dw" onclick="onDw(this.id);"><img class="img" src="./images/dw.gif" title="排序后移" /></div>
-								<div class="tm" id="p8tm"></div>
-								<div class="hp" id="p8hp"><img class="img" src="./images/hp.gif" title="帮助信息" /></div>
-								<div class="rs" id="p8rs" onclick="onRs(this.id);"><img class="img" src="./images/rs.gif" title="重新计时" /></div>
-							</div>
-						</td>
-						<td width="20%" align="center">
-							<div class="faucet" id="p9">
-								<div class="tt" id="p9tt" onclick="onTt(this.id);"></div>
-								<div class="up" id="p9up" onclick="onUp(this.id);"><img class="img" src="./images/up.gif" title="排序前移" /></div>
-								<div class="dw" id="p9dw" onclick="onDw(this.id);"><img class="img" src="./images/dw.gif" title="排序后移" /></div>
-								<div class="tm" id="p9tm"></div>
-								<div class="hp" id="p9hp"><img class="img" src="./images/hp.gif" title="帮助信息" /></div>
-								<div class="rs" id="p9rs" onclick="onRs(this.id);"><img class="img" src="./images/rs.gif" title="重新计时" /></div>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td width="20%" align="center">
-							<div class="faucet" id="p10">
-								<div class="tt" id="p10tt" onclick="onTt(this.id);"></div>
-								<div class="up" id="p10up" onclick="onUp(this.id);"><img class="img" src="./images/up.gif" title="排序前移" /></div>
-								<div class="dw" id="p10dw" onclick="onDw(this.id);"><img class="img" src="./images/dw.gif" title="排序后移" /></div>
-								<div class="tm" id="p10tm"></div>
-								<div class="hp" id="p10hp"><img class="img" src="./images/hp.gif" title="帮助信息" /></div>
-								<div class="rs" id="p10rs" onclick="onRs(this.id);"><img class="img" src="./images/rs.gif" title="重新计时" /></div>
-							</div>
-						</td>
-						<td width="20%" align="center">
-							<div class="faucet" id="p11">
-								<div class="tt" id="p11tt" onclick="onTt(this.id);"></div>
-								<div class="up" id="p11up" onclick="onUp(this.id);"><img class="img" src="./images/up.gif" title="排序前移" /></div>
-								<div class="dw" id="p11dw" onclick="onDw(this.id);"><img class="img" src="./images/dw.gif" title="排序后移" /></div>
-								<div class="tm" id="p11tm"></div>
-								<div class="hp" id="p11hp"><img class="img" src="./images/hp.gif" title="帮助信息" /></div>
-								<div class="rs" id="p11rs" onclick="onRs(this.id);"><img class="img" src="./images/rs.gif" title="重新计时" /></div>
-							</div>
-						</td>
-						<td width="20%" align="center">
-							<div class="faucet" id="p12">
-								<div class="tt" id="p12tt" onclick="onTt(this.id);"></div>
-								<div class="up" id="p12up" onclick="onUp(this.id);"><img class="img" src="./images/up.gif" title="排序前移" /></div>
-								<div class="dw" id="p12dw" onclick="onDw(this.id);"><img class="img" src="./images/dw.gif" title="排序后移" /></div>
-								<div class="tm" id="p12tm"></div>
-								<div class="hp" id="p12hp"><img class="img" src="./images/hp.gif" title="帮助信息" /></div>
-								<div class="rs" id="p12rs" onclick="onRs(this.id);"><img class="img" src="./images/rs.gif" title="重新计时" /></div>
-							</div>
-						</td>
-						<td width="20%" align="center">
-							<div class="faucet" id="p13">
-								<div class="tt" id="p13tt" onclick="onTt(this.id);"></div>
-								<div class="up" id="p13up" onclick="onUp(this.id);"><img class="img" src="./images/up.gif" title="排序前移" /></div>
-								<div class="dw" id="p13dw" onclick="onDw(this.id);"><img class="img" src="./images/dw.gif" title="排序后移" /></div>
-								<div class="tm" id="p13tm"></div>
-								<div class="hp" id="p13hp"><img class="img" src="./images/hp.gif" title="帮助信息" /></div>
-								<div class="rs" id="p13rs" onclick="onRs(this.id);"><img class="img" src="./images/rs.gif" title="重新计时" /></div>
-							</div>
-						</td>
-						<td width="20%" align="center">
-							<div class="faucet" id="p14">
-								<div class="tt" id="p14tt" onclick="onTt(this.id);"></div>
-								<div class="up" id="p14up" onclick="onUp(this.id);"><img class="img" src="./images/up.gif" title="排序前移" /></div>
-								<div class="dw" id="p14dw" onclick="onDw(this.id);"><img class="img" src="./images/dw.gif" title="排序后移" /></div>
-								<div class="tm" id="p14tm"></div>
-								<div class="hp" id="p14hp"><img class="img" src="./images/hp.gif" title="帮助信息" /></div>
-								<div class="rs" id="p14rs" onclick="onRs(this.id);"><img class="img" src="./images/rs.gif" title="重新计时" /></div>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td width="20%" align="center"><div class="faucet" id="p15"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p16"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p17"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p18"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p19"></div></td>
-					</tr>
-					<tr>
-						<td width="20%" align="center"><div class="faucet" id="p20"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p21"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p22"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p23"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p24"></div></td>
-					</tr>
-					<tr>
-						<td width="20%" align="center"><div class="faucet" id="p25"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p26"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p27"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p28"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p29"></div></td>
-					</tr>
-					<tr>
-						<td width="20%" align="center"><div class="faucet" id="p30"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p31"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p32"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p33"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p34"></div></td>
-					</tr>
-					<tr>
-						<td width="20%" align="center"><div class="faucet" id="p35"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p36"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p37"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p38"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p39"></div></td>
-					</tr>
-					<tr>
-						<td width="20%" align="center"><div class="faucet" id="p40"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p41"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p42"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p43"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p44"></div></td>
-					</tr>
-					<tr>
-						<td width="20%" align="center"><div class="faucet" id="p45"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p46"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p47"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p48"></div></td>
-						<td width="20%" align="center"><div class="faucet" id="p49"></div></td>
-					</tr>
-					</tbody>
-					</table>
-				</div>
-				<div id="view2" style="display: none; ">table2</div>
-				<div id="view3" style="display: none; ">table3</div>
+				<div id="view1" style="display: none;"></div>
+				<div id="view2" style="display: none;"></div>
+				<div id="view3" style="display: none;"></div>
 			</div>
 		</div>
 	</td>
@@ -284,45 +85,10 @@
 </div>
 <div id="footer">
 	<div class="friendlinks">
-		<div class="flcap">友情链接</div>
-		<div class="flcontent"> 
-			<a href="http://www.btc123.com/" target="_blank">Btc123导航</a>
-			<a href="http://www.btctrade.com/" target="_blank">比特币交易网</a>
-			<a href="http://bter.com/" target="_blank">比特儿</a>
-			<a href="http://pow88.com/" target="_blank">算力吧</a>
-			<a href="http://www.yibite.com/" target="_blank">壹比特</a>
-			<a href="http://knewcoin.com/" target="_blank">KnewCoin</a>
-			<a href="http://www.boluojishi.com/" target="_blank">菠萝集市</a>
-			<a href="http://zhibite.com/" target="_blank">智比特</a>
-			<a href="http://www.btc798.com/" target="_blank">比特币之家</a>
-			<a href="http://www.eternalspring.org/" target="_blank">温暖四季</a>
-			<a href="http://www.bitmain.cn/default.php" target="_blank">蚂蚁矿机</a>
-			<a href="http://cointelegraph.com" target="_blank">Cointelegraph</a>
-			<a href="https://btct.com/index.html" target="_blank">比特汇</a>
-			<a href="https://www.chbtc.com/" target="_blank">中国比特币</a>
-			<a href="http://www.btc38.com/" target="_blank">比特时代</a>
-			<a href="https://vip.btcchina.com/" target="_blank">比特币中国</a>
-			<a href="https://yunbi.com/" target="_blank">云币网</a>
-			<a href="https://www.coinsave.com/" target="_blank">币存</a>
-			<a href="http://www.btc114.com/" target="_blank">BTC114</a>
-			<a href="http://www.bimin.cn/" target="_blank">币民中国</a>
-			<a href="http://www.sosobtc.com/" target="_blank">搜搜比特币</a>
-			<a href="http://www.bitecoin.com/" target="_blank">比特币中文网</a>
-			<a href="http://www.bitcoin86.com/" target="_blank">比特币资讯网</a>
-			<a href="http://www.topcoin.cn" target="_blank">Topcoin</a>
-			<a href="http://www.btc114.com" target="_blank">比特币导航</a>
-			<a href="http://www.wanbizu.com/" target="_blank">玩币族</a>
-			<a href="http://www.bitsea.cn" target="_blank">BitSea矿机商城</a>
-			<a href="http://www.336hyw.com/" target="_blank">山寨币信息大全</a>
-			<a href="http://www.bitstones.com/" target="_blank">比特四通</a>
-			<a href="http://www.01btc.com" target="_blank">好币网</a>
-			<a href="http://www.cnbite.com " target="_blank">比特矿业</a>
-			<a href="http://www.litecoin100.com/" target="_blank">莱特币之家</a>
-			<a href="http://mydoge.org/" target="_blank">狗狗币资讯</a>
-			<a href="https://www.bitstamp.net/" target="_blank">Bitstamp</a>
-		</div>
+		<div id="step6" class="flcap">友情链接</div>
+		<div id="links" class="flcontent"></div>
 	</div>
-	<div class="ft">
+	<div id="step7" class="ft">
 		<img id="donate" src="./images/donate.gif" alt="捐助"/>
 		<span id="donateaddr">比特币地址：<input type="text" id="daddr" size="40" title="单击复制地址到剪贴板" value="19nNkBMzMqPdTxA8cLKAo5jJo13pW9mCAs" data-clipboard-text="19nNkBMzMqPdTxA8cLKAo5jJo13pW9mCAs" readonly onmouseover="this.select();" />&nbsp&nbsp扫描二维码：</span><span id="qr"></span>
 	</div>
@@ -342,7 +108,10 @@
 
 
 
-    <script type="text/javascript" src="./javascripts/multicounter.js"></script>
+    <script type="text/javascript" src="./javascripts/notices.js"></script>
+    <script type="text/javascript" src="./javascripts/faucets.js"></script>
+    <script type="text/javascript" src="./javascripts/friends.js"></script>
+	<script type="text/javascript" src="./javascripts/multicounter.js"></script>
     <script type="text/javascript" src="./javascripts/jqm.js"></script>
 	<script type="text/javascript" src="./javascripts/qrcode.js"></script>
 	<script type="text/javascript" src="./javascripts/ZeroClipboard.min.js"></script>

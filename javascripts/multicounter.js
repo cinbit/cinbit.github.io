@@ -2,11 +2,20 @@
 *  Multi Counter
 *  @author cinbit.com
 *  @date   2014-08-31
-*  @email  btcinvestor@sina.com
+*  @email  cinbit@sina.com
 */
 var enCookie=ChkCookie();
 //var enCookie=false;
 //alert(enCookie);
+var prefix	= new Array(
+	"www.",
+	"^faucet."
+	);
+var suffix	= new Array(
+	".com",
+	".biz",
+	".info"
+	);
 var namePtn	= DomainPtn(prefix,suffix);
 
 var timeID 	= window.setTimeout("DownCount()",1000);
@@ -285,7 +294,8 @@ function GetPersonalize(){
 		}
 	}
 	for ( var k=0;k<fc.length;k++) {
-		document.getElementById(fc[k].pos+"tt").innerHTML = ShowDomain(fc[k].url,fc[k].pri);
+		document.getElementById(fc[k].pos+"tt").innerHTML = ShowDomain(fc[k].url,fc[k].pri,0);
+		document.getElementById(fc[k].pos+"hp").innerHTML = ShowDomain(fc[k].url,fc[k].pri,1);
 	}
 }
 function GetNow(){
@@ -512,8 +522,10 @@ function onUp(id) {
 	var i=parseInt(id.replace(/^p|up$/ig,""));
 	if(i>0){
 		swapObj(fc[i],fc[i-1]);
-		document.getElementById(fc[i-1].pos+"tt").innerHTML = ShowDomain(fc[i-1].url,fc[i-1].pri);
-		document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url,fc[i].pri);
+		document.getElementById(fc[i-1].pos+"tt").innerHTML = ShowDomain(fc[i-1].url,fc[i-1].pri,0);
+		document.getElementById(fc[i-1].pos+"hp").innerHTML = ShowDomain(fc[i-1].url,fc[i-1].pri,1);
+		document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url,fc[i].pri,0);
+		document.getElementById(fc[i].pos+"hp").innerHTML = ShowDomain(fc[i].url,fc[i].pri,1);
 		SetPersonalize();
 		SetNow();
 	}
@@ -522,8 +534,10 @@ function onDw(id) {
 	var i=parseInt(id.replace(/^p|dw$/ig,""));
 	if(i<fc.length){
 		swapObj(fc[i],fc[i+1]);
-		document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url,fc[i].pri);
-		document.getElementById(fc[i+1].pos+"tt").innerHTML = ShowDomain(fc[i+1].url,fc[i+1].pri);
+		document.getElementById(fc[i].pos+"tt").innerHTML = ShowDomain(fc[i].url,fc[i].pri,0);
+		document.getElementById(fc[i].pos+"hp").innerHTML = ShowDomain(fc[i].url,fc[i].pri,1);
+		document.getElementById(fc[i+1].pos+"tt").innerHTML = ShowDomain(fc[i+1].url,fc[i+1].pri,0);
+		document.getElementById(fc[i+1].pos+"hp").innerHTML = ShowDomain(fc[i+1].url,fc[i+1].pri,1);
 		SetPersonalize();
 		SetNow();
 	}
@@ -573,12 +587,23 @@ function DomainPtn(pfix,sfix) {
 	var reg = new RegExp(strPtn,"gi");
 	return reg;
 }
-function ShowDomain(url,num) {
+function ShowDomain(url,num,h) {
 	var strArr = url.match(/[^\:|\/]+/gi);
 	var str	= strArr[1].replace(namePtn,"");
-	str = "<a href='browser.html?p="+num+"' target='_blank'>"+str+"</a>";
+	if(h==0){
+		str = "<a href='browser.html?p="+num+"&h="+h+"' target='_blank'>"+str+"</a>";
+	}
+	else{
+		str = "<a href='browser.html?p="+num+"&h="+h+"' target='_blank'><img class='img' src='./images/hp.gif' title='帮助信息' /></a>";
+	}
 	return str;
 }
+function ShowTutorial(id,t,h,pic) {
+	var str	= "<a href='tutorial.html?t="+t+"&h="+h+"' target='_blank'><img src='"+pic+"'/></a>";
+	document.getElementById(id).innerHTML = str;
+}
+ShowTutorial('step3',0,0,'./images/xapo.png');
+ShowTutorial('step4',1,0,'./images/kipcoin.png');
 /*function onTt(id) {
 	var i=parseInt(id.replace(/^p|tt$/ig,""));
 	var vra=document.createElement("a"); 
@@ -615,10 +640,3 @@ function dU(Y) {
 	}
 	return  f;
 }
-var demo = document.getElementById("falshnew");
-function MarqueeLeft() {
-	demo.scrollLeft++;
-}
-var MyMar = setInterval(MarqueeLeft,40);
-demo.onmouseover = function () { clearInterval(MyMar); }
-demo.onmouseout = function () { MyMar = setInterval(MarqueeLeft,40); }

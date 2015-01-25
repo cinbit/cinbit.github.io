@@ -1,0 +1,81 @@
+/*
+*  @author cinbit.com
+*  @date   2015-01-24
+*  @email  cinbit@sina.com
+*/
+
+@charset "utf-8";
+
+.news
+{
+	position:absolute;
+	top:100px;
+	left:2px;
+	width:794px;
+	height:22px;
+	overflow:hidden;
+}
+
+.flash
+{
+	float:left;
+	margin:0px 2px 0px 1px;
+	display:block;
+	height:20px;
+	width:60px;
+	border-radius:5px;
+	border-right-color:#888;
+	border-bottom-color:#888;
+	box-shadow:1px 1px 3px #aaa;
+	line-height:20px;
+	font-family:'\5FAE\8F6F\96C5\9ED1', Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#FFF;
+	text-align:center;
+	background:#F7931A;
+	cursor:default;
+}
+
+#demo
+{
+	float:left;
+	margin:0px 0px 0px 2px;
+	width:728px;
+	height:20px;
+	overflow:hidden;
+}
+
+.notice
+{
+	float:left;
+	width:728px;
+	height:20px;
+	overflow:hidden;
+}
+
+.notice a
+{
+	padding: 0px 19px;
+	background:url(../images/horngray.png) no-repeat left;
+	color:#666666;
+	font-size:13px;
+	font-family: '\5B8B\4F53',Arial,Helvetica,sans-serif;
+}
+
+.notice a:link
+{
+	color:#666666;
+	text-decoration:none;
+	cursor:pointer;
+}
+
+.notice a:hover
+{
+	background:url(../images/horn.png) no-repeat left;
+	color:#F7931A;
+}
+
+.notice a:focus
+{
+	outline:none;
+}

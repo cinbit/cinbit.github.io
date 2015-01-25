@@ -1,0 +1,34 @@
+/*
+*  @author cinbit.com
+*  @date   2015-01-24
+*  @email  cinbit@sina.com
+*/
+
+@charset "utf-8";
+
+.container
+{
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	height:auto;
+	display:none;
+}
+
+#showIframe
+{
+	border:0px;
+	height:100%;
+	vertical-align:top;
+	width:100%;
+}
+
+#hideIframe
+{
+	border:0px;
+	height:100%;
+	vertical-align:top;
+	width:100%;
+}
