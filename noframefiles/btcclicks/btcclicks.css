@@ -1,0 +1,54 @@
+/*
+*  @author cinbit.com
+*  @date   2015-01-24
+*  @email  cinbit@sina.com
+*/
+
+@charset "utf-8";
+
+body 
+{
+	background-color: white;
+}
+
+.main
+{
+	margin:0px auto;
+	width:580px;
+}
+
+.logo
+{
+	position:relative;
+	margin:0px auto;
+	padding: 40px 0px 40px 0px;
+	width:237px;
+	height:32px;
+	background:url(btcclickslogo.png) no-repeat left;
+}
+
+.intro
+{
+	position:relative;
+	margin:0px auto;
+	padding: 20px 0px 20px 0px;
+	width:373px;
+	height:69px;
+	background:url(btcclicksintro.png) no-repeat left;
+}
+
+.register
+{
+	position:relative;
+	margin:0px auto;
+	padding: 40px 0px 0px 0px;
+	width:93px;
+	height:34px;
+	background:url(btcclicksbutton.png) no-repeat left;
+}
+
+.register:hover
+{
+	cursor:pointer;
+	background:url(onbtcclicksbutton.png) no-repeat left;
+}
