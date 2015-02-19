@@ -13,3 +13,4 @@ friends[4] = {name:"比特币实时K线行情",url:"http://k.sosobtc.com/"};
 friends[5] = {name:"8btc论坛",url:"http://8btc.com/"};
 friends[6] = {name:"比特帮",url:"http://www.btcside.com/"};
 friends[7] = {name:"钱包啦",url:"http://wallet.la/"};
+friends[8] = {name:"币推",url:"https://bitui.io/"};
