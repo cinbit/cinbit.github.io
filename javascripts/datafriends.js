@@ -15,3 +15,4 @@ friends[6] = {name:"比特帮",url:"http://www.btcside.com/"};
 friends[7] = {name:"钱包啦",url:"http://wallet.la/"};
 friends[8] = {name:"币推",url:"https://bitui.io/"};
 friends[9] = {name:"时针角度计算",url:"calangle.html"};
+friends[10] = {name:"歪啦象棋演示",url:"chinesechess.html"};

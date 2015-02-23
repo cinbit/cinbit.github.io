@@ -1,0 +1,243 @@
+<html> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>中国象棋演示</title> 
+<script> 
+var st="";
+var PcId=new Array(); 
+var PosX=new Array(); 
+var PosY=new Array(); 
+var Counter=0;
+var strSteps="";
+strSteps+="1,1,1,17,10,1,"; 
+strSteps+="2,1,2,18,10,2,"; 
+strSteps+="3,1,3,19,10,3,"; 
+strSteps+="4,1,4,20,10,4,"; 
+strSteps+="5,1,5,21,10,5,"; 
+strSteps+="6,1,6,22,10,6,"; 
+strSteps+="7,1,7,23,10,7,"; 
+strSteps+="8,1,8,24,10,8,"; 
+strSteps+="9,1,9,25,10,9,"; 
+strSteps+="10,3,2,26,8,2,"; 
+strSteps+="11,3,8,27,8,8,"; 
+strSteps+="12,4,1,28,7,1,"; 
+strSteps+="13,4,3,29,7,3,"; 
+strSteps+="14,4,5,30,7,5,"; 
+strSteps+="15,4,7,31,7,7,"; 
+strSteps+="16,4,9,32,7,9,"; 
+
+strSteps+="27,8,6,10,5,2,"; 
+strSteps+="18,8,3,10,5,1,"; 
+strSteps+="26,8,1,10,5,9,"; 
+strSteps+="24,8,9,9,2,9,"; 
+strSteps+="32,6,9,10,5,5,";
+strSteps+="20,9,5,10,5,3,";
+strSteps+="19,8,5,9,2,6,";
+strSteps+="25,10,8,9,8,6,";
+strSteps+="20,8,6,11,3,5,";
+strSteps+="25,1,8,10,8,3,";
+strSteps+="25,1,7,11,7,5,";
+strSteps+="20,9,5,11,7,1,";
+strSteps+="17,10,2,14,5,5,";
+strSteps+="24,6,8,14,6,5,";
+strSteps+="24,5,6,2,3,3,";
+strSteps+="25,3,7,2,4,5,";
+strSteps+="25,4,7,2,2,6,";
+strSteps+="25,2,7,2,4,5,";
+strSteps+="24,4,4,6,2,5,";
+strSteps+="24,2,3,5,1,6,";
+strSteps+="24,1,1,11,1,1,";
+strSteps+="26,1,1,5,1,5,";
+strSteps+="17,1,2,3,3,5,";
+strSteps+="17,2,2,3,1,3,";
+strSteps+="17,2,5,16,5,9";
+
+function InitGame(str){
+	var tmp=str.split(","); 
+	for (var i=0,j=0;i<tmp.length;i+=3) 
+	{ 
+		PcId[j]=tmp[i];
+		PosX[j]=tmp[i+1]; 
+		PosY[j]=tmp[i+2]; 
+		j++;
+	} 
+}
+function point(x,y){ 
+	st+="<div style='position:absolute;width:1px;height:1px;top:"+x+"px;left:"+y+"px;background:black;'></div>";
+}
+function jiugong(){
+	for(var i=1;i<101;i++){point(i+75,i+225);}
+	for(var i=1;i<101;i++){point(i+425,i+225);}
+	for(var i=1;i<101;i++){point(525-i,i+225);}
+	for(var i=1;i<101;i++){point(175-i,i+225);}
+}
+function ptnleft(top,left){ 
+	var x=50*top+20; 
+	var y=50*left+15; 
+    for(var i=0;i<6;i++){point(x,i+y+15);}
+    for(var i=0;i<6;i++){point(x+11,i+y+15);}
+    for(var i=0;i<6;i++){point(i+x-5,y+15);}
+    for(var i=0;i<6;i++){point(i+x+12,y+15);}
+}
+function ptnright(top,left){ 
+	var x=50*top+20; 
+	var y=50*left+15; 
+    for(var i=0;i<6;i++){point(x,i+y);}
+    for(var i=0;i<6;i++){point(x+11,i+y);}
+    for(var i=0;i<6;i++){point(i+x-5,y+5);}
+    for(var i=0;i<6;i++){point(i+x+12,y+5);}
+}
+function ptnfull(top,left){ 
+	var x=50*top+20; 
+	var y=50*left+15; 
+	for(var i=0;i<6;i++){point(x,i+y);}
+	for(var i=0;i<6;i++){point(x+11,i+y);}
+	for(var i=0;i<6;i++){point(x,i+y+15);}
+	for(var i=0;i<6;i++){point(x+11,i+y+15);}
+	for(var i=0;i<6;i++){point(i+x-5,y+5);}
+	for(var i=0;i<6;i++){point(i+x-5,y+15);}
+	for(var i=0;i<6;i++){point(i+x+12,y+5);}
+	for(var i=0;i<6;i++){point(i+x+12,y+15);}
+}
+function pattern(){
+    ptnfull(3,2); 
+    ptnfull(3,8); 
+    ptnfull(4,3); 
+    ptnfull(4,5); 
+    ptnfull(4,7); 
+    ptnfull(7,3); 
+    ptnfull(7,5); 
+    ptnfull(7,7); 
+    ptnfull(8,2); 
+    ptnfull(8,8); 
+    ptnleft(4,1); 
+    ptnleft(7,1); 
+    ptnright(4,9); 
+    ptnright(7,9); 
+}
+function piece(color,name,x,y,id){ 
+	st+="<div id='a"+id+"' style='position:absolute;top:"+(x*50-10)+"px;left:"+(y*50-8)+"px;width:50px;height:50px;color:"+color+";font-size:66px'>●</div>";
+	st+="<div id='b"+id+"' style='position:absolute;top:"+(x*50+8)+"px;left:"+(y*50+10)+"px;width:24px;height:24px;color:white;font-size:30px'>"+name+"</div>";
+	st+="<div id='c"+id+"' style='position:absolute;top:"+(x*50-8)+"px;left:"+(y*50-5)+"px;width:43px;height:43px;color:white;font-size:60px'>○</div>";
+}
+function DrawChessboard(){
+	st+="<div style='position:absolute;width:412px;height:3px;top:70px;left:70px;background:black;'></div>";
+	st+="<div style='position:absolute;width:412px;height:3px;top:529px;left:70px;background:black;'></div>";
+	st+="<div style='position:absolute;width:3px;height:462px;left:70px;top:70px;background:black;'></div>";
+	st+="<div style='position:absolute;width:3px;height:462px;left:479px;top:70px;background:black;'></div>";
+	for(var i=1;i<11;i++){
+		st+="<div style='position:absolute;width:402px;height:2px;top:"+(i*50+25)+"px;left:75px;background:black;'></div>";
+	}
+	for(var i=1;i<10;i++){
+		st+="<div style='position:absolute;width:2px;height:450px;left:"+(i*50+25)+"px;top:75px;background:black;'></div>";
+	}
+	st+="<div style='position:absolute;width:350px;height:48px;left:100px;top:277px;background:white;'></div>";
+	jiugong();
+	pattern();
+	document.getElementById("cc").innerHTML=st;
+}
+function DrawPiece(){
+    piece("black","车",1,1,1); 
+    piece("black","马",1,2,2); 
+    piece("black","象",1,3,3); 
+    piece("black","仕",1,4,4); 
+    piece("black","将",1,5,5); 
+    piece("black","仕",1,6,6); 
+    piece("black","象",1,7,7); 
+    piece("black","马",1,8,8); 
+    piece("black","车",1,9,9); 
+    piece("black","炮",3,2,10); 
+    piece("black","炮",3,8,11); 
+    piece("black","卒",4,1,12); 
+    piece("black","卒",4,3,13); 
+    piece("black","卒",4,5,14); 
+    piece("black","卒",4,7,15); 
+    piece("black","卒",4,9,16); 
+    piece("red","车",10,1,17); 
+    piece("red","马",10,2,18); 
+    piece("red","相",10,3,19); 
+    piece("red","士",10,4,20); 
+    piece("red","帅",10,5,21); 
+    piece("red","士",10,6,22); 
+    piece("red","相",10,7,23); 
+    piece("red","马",10,8,24); 
+    piece("red","车",10,9,25); 
+    piece("red","炮",8,2,26); 
+    piece("red","炮",8,8,27); 
+    piece("red","兵",7,1,28); 
+    piece("red","兵",7,3,29); 
+    piece("red","兵",7,5,30); 
+    piece("red","兵",7,7,31); 
+    piece("red","兵",7,9,32); 
+	document.getElementById("cc").innerHTML=st;
+}
+function DelPiece(id){
+	eval("document.getElementById('a"+id+"').style.display='none';");
+	eval("document.getElementById('b"+id+"').style.display='none';");
+	eval("document.getElementById('c"+id+"').style.display='none';");
+}
+function ReadChessbook(){ 
+	if (Counter>=PcId.length){ 
+		alert("游戏演示结束!"); 
+		return;
+	} 
+	eval("var x1=document.getElementById('a"+PcId[Counter]+"').style.top"); 
+	re=/px/i; 
+	x1= x1.replace(re,""); 
+	eval("var y1=document.getElementById('a"+PcId[Counter]+"').style.left"); 
+	re=/px/i; 
+	y1= y1.replace(re,"");
+	MovePiece(PcId[Counter],x1*1,y1*1,PosX[Counter]*50,PosY[Counter]*50); 
+	Counter++; 
+} 
+function MovePiece(id,x,y,x2,y2){ 
+    eval("document.getElementById('a"+id+"').style.top='"+(x-10)+"px'"); 
+    eval("document.getElementById('b"+id+"').style.top='"+(x+8)+"px'"); 
+    eval("document.getElementById('c"+id+"').style.top='"+(x-8)+"px'"); 
+    eval("document.getElementById('a"+id+"').style.left='"+(y-8)+"px'"); 
+    eval("document.getElementById('b"+id+"').style.left='"+(y+10)+"px'"); 
+    eval("document.getElementById('c"+id+"').style.left='"+(y-5)+"px'"); 
+    if(x!=x2) 
+    { 
+        if (x>x2) x-=2; 
+        if (x<x2) x+=2; 
+    } 
+    if(y!=y2) 
+    { 
+        if (y>y2) y-=2; 
+        if (y<y2) y+=2; 
+    } 
+	if(Counter>31){
+		if (x!=x2 || y!=y2){
+			setTimeout("MovePiece("+id+","+x+","+y+","+x2+","+y2+")",10);
+		}		
+		else{
+			for(var i=0;i<Counter-1;i++){
+				if((x2/50==PosX[i]&&y2/50==PosY[i])&&((id<17&&PcId[i]>16)||(id>16&&PcId[i]<17))&&PcId[i]!=2){
+					DelPiece(PcId[i]);
+				}
+			}
+			setTimeout(ReadChessbook,100);
+		}
+	}
+	else{
+		if (x!=x2 || y!=y2){
+			setTimeout("MovePiece("+id+","+x+","+y+","+x2+","+y2+")",1);
+		}		
+		else{
+			setTimeout(ReadChessbook,1);
+		}
+	}
+} 
+</script>
+</head>
+<body>
+	<div id="cc"></div>
+<script>
+	InitGame(strSteps);
+	DrawChessboard();
+	DrawPiece();
+	ReadChessbook();
+</script>
+</body> 
+</html>
