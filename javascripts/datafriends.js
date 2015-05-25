@@ -16,3 +16,4 @@ friends[7] = {name:"币推",url:"https://bitui.io/"};
 friends[8] = {name:"时针角度计算",url:"calangle.html"};
 friends[9] = {name:"歪啦象棋演示",url:"chinesechess.html"};
 friends[10] = {name:"Xapo注册教程",url:"http://www.cinbit.com/tutorial.html?t=0&h=0"};
+friends[11] = {name:"免费比特币FarmBitcoin游戏教程",url:"noframefiles/farmbitcoin.html"};

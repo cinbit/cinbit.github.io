@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>FarmBitcoin</title>
+	<style type="text/css"> 
+<!--
+body{ background-color: black;}
+.main{	margin:0px auto; width:470px; padding: 60px 0px 0px 0px;}
+#imgslide{ margin:100px auto; width:470px; position:relative;-moz-user-select:none } 
+#imgslide img{ width:470px; height:470px;} 
+#imgslide #pre{ position:absolute; display:block; height:100%; background:#003366;filter:Alpha(Opacity=0);opacity:0; left:0; top:0; z-index:2; width:50%; cursor:url(farmbitcoin/pre.cur),auto; } 
+#imgslide #next{ position:absolute;z-index:2; display:block; background:#00CC99;filter:Alpha(Opacity=0);opacity:0; height:100%;width:50%; top:0; right:0; cursor:url(farmbitcoin/next.cur), auto;} 
+#intro{ padding:5px 8px; line-height:1.6; font-size:12px; color:#333; background:#333333; color:#fff} 
+--> 
+</style>
+</head>
+<body>
+<div class="main">
+<a href="https://farmsatoshi.com/?ref=647"target="_blank"><img src="https://www.farmsatoshi.com/images/banner_468_60.gif" alt="FarmSatoshi Enjoy Free Satoshi!" style="width:468px"></a>
+</div>
+<div id="imgslide"><span id="pre" ></span> <span id="next" ></span><img id="showimg" src="farmbitcoin/farm00.png" /> 
+<div id="intro"> </div> 
+</div> 
+<script type="text/javascript"> 
+$=function(obj){return document.getElementById(obj);} 
+//图片地址 
+var imgsrc= new Array(); 
+imgsrc[0]="farmbitcoin/farm00.png"; 
+imgsrc[1]="farmbitcoin/farm01.png"; 
+imgsrc[2]="farmbitcoin/farm02.png"; 
+imgsrc[3]="farmbitcoin/farm03.png"; 
+imgsrc[4]="farmbitcoin/farm04.png"; 
+imgsrc[5]="farmbitcoin/farm05.png"; 
+imgsrc[6]="farmbitcoin/farm06.png"; 
+imgsrc[7]="farmbitcoin/farm07.png"; 
+imgsrc[8]="farmbitcoin/farm08.png"; 
+imgsrc[9]="farmbitcoin/farm09.png"; 
+imgsrc[10]="farmbitcoin/farm10.png"; 
+imgsrc[11]="farmbitcoin/farm11.png"; 
+imgsrc[12]="farmbitcoin/farm12.png"; 
+imgsrc[13]="farmbitcoin/farm13.png"; 
+imgsrc[14]="farmbitcoin/farm14.png"; 
+imgsrc[15]="farmbitcoin/farm15.png"; 
+imgsrc[16]="farmbitcoin/farm16.png"; 
+imgsrc[17]="farmbitcoin/farm17.png"; 
+imgsrc[18]="farmbitcoin/farm18.png"; 
+imgsrc[19]="farmbitcoin/farm19.png"; 
+
+//图片预加载 
+var arr = new Array(); 
+for(var i=1; i<=imgsrc.length; i++) { 
+arr[i] = new Image(); 
+arr[i].src=imgsrc[i]; 
+arr[i].onload; 
+} 
+//图片文字简介 
+var title= new Array(); 
+title[0]="游戏介绍①：点击“Farm”图标，可以打开“Ranch”农场和“Warehouse”仓库。"; 
+title[1]="游戏介绍②：点击“Ranch”图标，如果有正在饲养中的动物，可以显示出来。"; 
+title[2]="游戏介绍③：“Ranch space”显示的是你可以饲养的动物的数量。点击每种动物下的“Collect”按钮，可以收集产品，例如蛋、毛、奶、肉等。红心上面的数字表示的是已经产出的数量，红心后面的数字是表示该动物还可以活几个小时。"; 
+title[3]="游戏介绍④：点击“Warehouse”图标，显示的仓库的信息。"; 
+title[4]="游戏介绍⑤：“On stock”显示的现在库存量；后面的“Max”显示的是当前最大库存量；“price”指的是升级仓库需要的资金；后面的“Max”显示的是目前能升级的最大库存量。点击“up”按钮可以升级“carrot”胡萝卜、“wheat”小麦、“hay”干草、“corn”玉米、“water”水的仓库容量。"; 
+title[5]="游戏介绍⑥：点击“Market”图标，可以购买“Animals”动物、“Feed”食物和“Water”水。"; 
+title[6]="游戏介绍⑦：点击“Animals”图标购买动物。"; 
+title[7]="游戏介绍⑧：图示说明：上面的“name”是动物名称；左面带有的“production XXX/hour”是每小时产XXX量，最多有两种产出物；“life XX hours”是该动物可存活XX小时；右面的“consomation water/hour”是每小时消耗水量；“consomation food/hour”是每小时消耗食物数量；“ranch space”是占用仓库空间数量；最下面的按钮显示的是该动物的价格。灰色的不能购买。"; 
+title[8]="游戏介绍⑨：点击“Feed”图标购买食物。"; 
+title[9]="游戏介绍⑩：灰色的不能购买。"; 
+title[10]="游戏介绍⑪：点击“Water”图标购买水。"; 
+title[11]="游戏介绍⑫：灰色的不能购买。"; 
+title[12]="游戏介绍⑬：点击“Bank”图标，可以将介绍③中收集的产品卖成比特币；可以提款；可以贷款；可以抽奖；可以向其他用户转账。"; 
+title[13]="游戏介绍⑭：点击绿色按钮可以将产品换成比特币。"; 
+title[14]="游戏介绍⑮：点击“Claim”按钮可以提取比特币到自己的钱包。建议使用第一种带有“Xapo”图标的支付方式，无最小额立即到帐，没有xapo钱包的看注册教程（http://www.cinbit.com/）。"; 
+title[15]="游戏介绍⑯：向银行贷款，利率10%。"; 
+title[16]="游戏介绍⑰：每8小时可以抽一次奖。"; 
+title[17]="游戏介绍⑱：填写好友用户名，可以向其账户转账。"; 
+title[18]="游戏介绍⑲：点击第一行自己的用户名可以查看自己的等级；点击第二行红色按钮退出登录；点击第三行进入银行；下面的进度条显示的是各种食物当前的库存情况，缺少时直接点击对应的进度条进入购买页面。"; 
+title[19]="游戏介绍⑳：各等级对应的升级条件。例如：第二级需要购买一只北京鸭；第三级需要购买一只白兔和一小桶水；第四级需要购买一只绿头鸭、一份小麦、一份胡萝卜和升级胡萝卜仓库；第五级需要进行一次Xapo钱包提款、三次采集产品和两次卖出产品；第六级需要进行一次银行贷款、购买一只斑点山羊、一捆草和升级水仓库等等。"; 
+
+$("intro").innerHTML=title[0] 
+
+i=0; 
+
+$("next").onclick=function (){ 
+i++; 
+if(i>=imgsrc.length){i=0} 
+$("showimg").setAttribute("src",imgsrc[i]); 
+$("intro").innerHTML=title[i] 
+} 
+$("pre").onclick=function (){ 
+i--; 
+if(i<0){i=imgsrc.length-1} 
+$("showimg").setAttribute("src",imgsrc[i]); 
+$("intro").innerHTML=title[i] 
+} 
+</script> 
+</body>
+</html>
