@@ -1,0 +1,62 @@
+/*
+*  @author cinbit.com
+*  @date   2015-01-24
+*  @email  cinbit@sina.com
+*/
+
+@charset "utf-8";
+
+body 
+{
+	background-color: black;
+}
+
+.main
+{
+	margin:0px auto;
+	width:800px;
+}
+
+.logo
+{
+	position:relative;
+	padding: 10px 0px 0px 0px;
+	width:800px;
+	height:60px;
+//	background:url(credit.jpg) no-repeat left;
+//	border:1px solid #bbb;
+}
+
+.txt
+{
+	position:relative;
+	padding: 18px 0px 0px 10px;
+	font-size:24px;
+	font-family:'\5B8B\4F53',Tahoma;
+	color:#ffffff;	
+//	border:1px solid #bbb;
+}
+
+.register
+{
+	position:relative;
+	margin:15px 0px 0px 72px;
+//	text-align: center;
+	width:728px;
+	height:90px;
+	background:url(faucethub.gif) no-repeat left;
+//	border:1px solid #bbb;
+}
+
+.register:hover
+{
+	cursor:pointer;
+	background:url(onfaucethub.png) no-repeat left;
+}
+
+*{ margin:0; padding:0} 
+#imgslide{ margin:30px auto; width:800px; position:relative;-moz-user-select:none } 
+#imgslide img{ width:800px; height:600px} 
+#imgslide #pre{ position:absolute; display:block; height:100%; background:#003366;filter:Alpha(Opacity=0);opacity:0; left:0; top:0; z-index:2; width:50%; cursor:url(pre.cur), auto;} 
+#imgslide #next{ position:absolute;z-index:2; display:block; background:#00CC99;filter:Alpha(Opacity=0);opacity:0; height:100%;width:50%; top:0; right:0; cursor:url(next.cur), auto;} 
+#intro{ padding:5px 8px; line-height:1.6; font-size:12px; color:#333; background:#333333; color:#fff} 
