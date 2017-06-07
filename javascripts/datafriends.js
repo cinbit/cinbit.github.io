@@ -11,3 +11,4 @@ friends[2] = {name:"比特币创世论文",url:"https://bitcoin.org/bitcoin.pdf"
 friends[3] = {name:"比特币创世论文(翻译）",url:"http://www.8btc.com/wiki/bitcoin-a-peer-to-peer-electronic-cash-system"};
 friends[4] = {name:"比特币实时K线行情",url:"http://k.sosobtc.com/"};
 friends[5] = {name:"8btc论坛",url:"http://8btc.com/"};
+friends[6] = {name:"比特时代",url:"http://www.btc38.com/"};
