@@ -10,4 +10,4 @@ friends[1] = {name:"比特币维基百科",url:"https://zh-cn.bitcoin.it/wiki/%E
 friends[2] = {name:"比特币创世论文",url:"https://bitcoin.org/bitcoin.pdf"};
 friends[3] = {name:"比特币创世论文(翻译）",url:"http://www.8btc.com/wiki/bitcoin-a-peer-to-peer-electronic-cash-system"};
 friends[4] = {name:"8btc论坛",url:"http://8btc.com/"};
-friends[5] = {name:"显示谷歌reCAPTCHA验证码",url:"http://ggfwzs.com/"};
+friends[5] = {name:"显示谷歌reCAPTCHA验证码",url:"http://www.cinbit.com/recaptcha_show_1.0.0.crx"};
