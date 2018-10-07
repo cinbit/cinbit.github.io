@@ -16,3 +16,4 @@ friends[7] = {name:"码秀V1.0浏览器插件",url:"http://www.cinbit.com/recapt
 friends[8] = {name:"各种数字货币地址生成器",url:"https://walletgenerator.net/"};
 friends[9] = {name:"全球最大数字货币交易所-币安",url:"http://t.cn/RrLDpoa"};
 friends[10] = {name:"比特时代交易所",url:"https://www.bit.cc/"};
+friends[11] = {name:"0",url:"http://www.cinbit.com/my000.html"};
