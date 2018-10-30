@@ -14,5 +14,5 @@ friends[5] = {name:"天涯比特时代部落",url:"http://groups.tianya.cn/list-
 friends[6] = {name:"码秀V1.0安装使用说明",url:"http://www.weibo.com/ttarticle/p/show?id=2309404163225942948045"};
 friends[7] = {name:"码秀V1.0浏览器插件",url:"http://www.cinbit.com/recaptcha_show_1.0.0.crx"};
 friends[8] = {name:"各种数字货币地址生成器",url:"https://walletgenerator.net/"};
-friends[9] = {name:"全球最大数字货币交易所-币安",url:"http://t.cn/RrLDpoa"};
+friends[9] = {name:"全球最大数字货币交易所-币安",url:"http://t.cn/EwZQukY"};
 friends[10] = {name:"比特时代交易所",url:"https://www.bit.cc/"};
