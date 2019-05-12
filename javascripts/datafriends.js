@@ -15,4 +15,6 @@ friends[6] = {name:"码秀V1.0安装使用说明",url:"http://www.weibo.com/ttar
 friends[7] = {name:"码秀V1.0浏览器插件",url:"http://www.cinbit.com/recaptcha_show_1.0.0.crx"};
 friends[8] = {name:"各种数字货币地址生成器",url:"https://walletgenerator.net/"};
 friends[9] = {name:"全球最大数字货币交易所-币安",url:"http://t.cn/EwZQukY"};
-friends[10] = {name:"比特时代交易所",url:"https://www.bit.cc/"};
+friends[10] = {name:"比特时代AEX交易所地址1",url:"http://t.cn/ES7HKTS"};
+friends[11] = {name:"比特时代AEX交易所地址2",url:"http://t.cn/EaXWZ4U"};
+friends[12] = {name:"比特时代AEX交易所地址3",url:"http://t.cn/ES7HKTo"};
