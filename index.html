@@ -22,7 +22,7 @@
 
 <body>
 
-<div class="uk-section uk-section-muted" id="zh" style="display:block">
+<div class="uk-section uk-section-muted" id="zh" style="display:block;">
 	<div class="uk-container uk-container-small">
 		<h2 class="uk-text-center"><a href="http://cinbit.com" target="_blank">
 	            <div class="brand" id="yttx">
@@ -64,7 +64,8 @@
 	</div>
 </div>
 
-<div class="uk-section uk-section-muted" id="en" style="display:none">
+<div class="uk-section uk-section-muted" id="en" style="display:none;">
+	<div style="height:65px;"></div>
 	<div class="uk-container uk-container-small">
 		<h2 class="uk-text-center"><a href="http://cinbit.com" target="_blank">
 	            <div class="brand" id="yttx">
@@ -108,7 +109,7 @@
 
 <script>
 	const detectLanguage = (defaultLang = 'zh') => (navigator.language || (Array.isArray(navigator.languages) && navigator.languages[0]) || defaultLang).toLowerCase().split("-")[0];
-	switch ("en") {
+	switch (detectLanguage()) {
 		case "zh":
 			document.getElementById("zh").style.display="block";
 			document.getElementById("en").style.display="none";
