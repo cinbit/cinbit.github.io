@@ -108,7 +108,7 @@
 
 <script>
 	const detectLanguage = (defaultLang = 'zh') => (navigator.language || (Array.isArray(navigator.languages) && navigator.languages[0]) || defaultLang).toLowerCase().split("-")[0];
-	switch (detectLanguage()) {
+	switch ("en") {
 		case "zh":
 			document.getElementById("zh").style.display="block";
 			document.getElementById("en").style.display="none";
